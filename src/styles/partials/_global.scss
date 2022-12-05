@@ -1,0 +1,87 @@
+@use "./colors.scss" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
+
+body {
+	color: $para-color;
+}
+h1 {
+	font-size: 1.5rem;
+	// line-height: 2.35rem;
+	font-weight: 700;
+	color: $font-color;
+	@include tablet {
+		font-size: 2.5rem;
+		line-height: 2.35rem;
+	}
+	@include desktop {
+		font-size: 4rem;
+		line-height: 4.625rem;
+	}
+}
+h2 {
+	font-size: 1.25rem;
+	// line-height: 3.625rem;
+	font-weight: 700;
+	color: $font-color;
+	@include tablet {
+		font-size: 2rem;
+		line-height: 1.75rem;
+	}
+	@include desktop {
+		font-size: 3rem;
+
+		line-height: 3.625rem;
+	}
+}
+h3 {
+	font-size: 1.15rem;
+	line-height: 2.875rem;
+	font-weight: 700;
+	color: $font-color;
+	@include tablet {
+		font-size: 1.25rem;
+		line-height: 1.4rem;
+	}
+	@include desktop {
+		font-size: 2.25rem;
+		line-height:2.875rem;
+	}
+}
+h4 {
+	font-size: 1.5rem;
+	line-height: 2.125rem;
+	font-weight: 700;
+	color: $font-color;
+}
+h5 {
+	font-size: 1.25rem;
+	line-height: 1.875rem;
+	font-weight: 700;
+	color: $font-color;
+}
+h6 {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+	color: $font-color;
+}
+
+.subtitle {
+	font-size: 1rem;
+	line-height: 1.625rem;
+	font-weight: 400;
+	color: $font-color;
+}
+.button-text {
+	font-size: 1rem;
+	line-height: 1.75rem;
+	font-weight: 400;
+	color: $font-color;
+}
+.button-text-large {
+	font-size: 1.125rem;
+	line-height: 1.875rem;
+	font-weight: 400;
+	color: $font-color;
+}

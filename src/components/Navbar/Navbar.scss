@@ -1,0 +1,124 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+.site-navbar {
+	//hamburger
+
+	@include tablet {
+		justify-content: flex-start;
+		padding: 1rem 0;
+		align-items: center;
+		width: 95%;
+		margin: 0 auto;
+		@include desktop {
+			padding: 1.5rem 0rem;
+		}
+	}
+	&__hamburger {
+		@include tablet {
+			display: none;
+		}
+	}
+	&__logo {
+		@include tablet {
+			width: 20%;
+		}
+	}
+	&__contents {
+		@include tablet {
+			display: flex;
+			justify-content: space-between;
+			width: 80%;
+		}
+	}
+	&__list {
+		//navbar for tab and desktop
+		&--left {
+			display: none;
+			@include tablet {
+				display: flex;
+				width: 70%;
+				justify-content: center;
+				a {
+					font-size: 0.875rem;
+					color: $primary_black;
+					&:hover {
+						color: $secondary;
+					}
+				}
+			}
+		}
+		&--right {
+			display: none;
+			@include tablet {
+				display: flex;
+				width: 30%;
+				justify-content: flex-end;
+				align-items: center;
+				img {
+					height: 1.15rem;
+					&:hover {
+						fill: red;
+					}
+				}
+			}
+		}
+
+		&-pages {
+			display: flex;
+			&-item {
+				margin: 0 0.5rem;
+			}
+		}
+		&-actions {
+			display: flex;
+			&-item {
+				margin: 0 0.5rem;
+			}
+		}
+		// mobile version navbar
+		&--mobile {
+			display: none;
+            z-index: 1;
+
+			&-list {
+				// height: 95%;
+				@include tablet {
+					display: none;
+				}
+            z-index: 1;
+
+				width: 100vw;
+				position: fixed;
+				top: 3.5rem;
+				left: 0;
+				bottom: 0;
+				background-color: #fff;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 1rem 0;
+			}
+			&-list--item {
+				padding: 1rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				&:hover {
+					background-color: $primary;
+					a {
+						h3 {
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.show {
+	display: block;
+}

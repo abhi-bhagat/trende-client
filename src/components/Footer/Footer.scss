@@ -1,0 +1,111 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.site-footer {
+	&__container {
+		@include tablet {
+			width: 95%;
+			margin: 1rem auto;
+		}
+	}
+	//white space
+	&__white {
+		background-color: #fff;
+		height: 60vh;
+		position: relative;
+	}
+
+	//main
+	&__main {
+		background-color: #f1f3f4;
+		width: 90%;
+		margin: 0 auto;
+		position: absolute;
+		top: 0;
+		right: 5%;
+		left: 5%;
+		// top
+		&-top {
+			border-bottom: solid 1px #e0e0e0;
+		}
+		&-bottom {
+			&-contact {
+				p {
+					display: flex;
+					padding: 0.5rem 0;
+					gap: 1rem;
+					font-size: 0.875rem;
+					align-items: center;
+					img {
+						height: 1rem;
+						width: 1rem;
+						width: 5%;
+					}
+				}
+			}
+			&-timings {
+				p {
+					padding: 0.5rem 0.5rem;
+
+					font-size: 0.875rem;
+				}
+			}
+			&-subscribe {
+                p{
+                    font-size: 0.875rem;
+                }
+				.sub-email {
+					width: 100%;
+					height: 2.5rem;
+					
+
+					border: none;
+					background-color: #fff;
+					padding: 0.5rem 1rem;
+					margin-top: 1rem;
+                    margin-bottom: .5rem;
+                    &:focus{
+                        outline: .5px solid $primary;
+                    }
+				}
+				.sub-button {
+                    height: 2.5rem;
+                    width: 100%;
+                    background-color: $secondary;
+                    color: #fff;
+                    border: none;
+                    margin-bottom: 1rem;
+
+				}
+			}
+		}
+	}
+
+	//sec footer
+
+	&__sec {
+		background-color: $primary_black;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 1rem;
+		padding-top: 4rem;
+		font-size: 0.875rem;
+		//copyright
+		&-copyright {
+			color: #fff;
+			padding: 1rem 0;
+		}
+
+		//payment
+		&-payment {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem 0;
+		}
+	}
+}
