@@ -9,11 +9,9 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 
+import model1 from "../../assets/images/model-noback.png";
+import model2 from "../../assets/images/model2-noback.png";
 
-import kidModel from "../../assets/images/kid-model.jpeg";
-import womanModel from "../../assets/images/woman-model.jpeg";
-import manModel from "../../assets/images/man-model.jpeg";
-// import sliderBackground from "../../assets/images/slider-background.svg"
 const Hero = () => {
 	return (
 		<div className="hero-section">
@@ -34,13 +32,62 @@ const Hero = () => {
 				className="mySwiper"
 			>
 				<SwiperSlide className="hero-section__slider-background">
-					<img className="hero-section-image" src={kidModel} alt="" />
+					{/* <img className="hero-section-image" src={kidModel} alt="" /> */}
+					<div className="hero-section__slider-content">
+						<div className="hero-section__slider-content--left">
+							<h4 className="hero-section__slider-hero-sale">Get 50% Flate</h4>
+							<h2 className="hero-section__slider-hero-title">
+								New Summer Collection
+							</h2>
+							<p className="hero-section__slider-hero-subtitle">
+								World class designers clothes available at a discounted rate!
+							</p>
+							<button className="hero-section__slider-hero-cta button-text">
+								Shop Now
+							</button>
+						</div>
+						<div className="hero-section__slider-content--right">
+							<img className="hero-section-image" src={model1} alt="" />
+						</div>
+					</div>
 				</SwiperSlide>
 				<SwiperSlide className="hero-section__slider-background">
-					<img className="hero-section-image" src={womanModel} alt="" />
+					<div className="hero-section__slider-content">
+						<div className="hero-section__slider-content--left">
+							<h4 className="hero-section__slider-hero-sale">Get 50% Flate</h4>
+							<h2 className="hero-section__slider-hero-title">
+								New Summer Collection
+							</h2>
+							<p className="hero-section__slider-hero-subtitle">
+								World class designers clothes available at a discounted rate!
+							</p>
+							<button className="hero-section__slider-hero-cta button-text">
+								Shop Now
+							</button>
+						</div>
+						<div className="hero-section__slider-content--right">
+							<img className="hero-section-image" src={model2} alt="" />
+						</div>
+					</div>
 				</SwiperSlide>
 				<SwiperSlide className="hero-section__slider-background">
-					<img className="hero-section-image" src={manModel} alt="" />
+					<div className="hero-section__slider-content">
+						<div className="hero-section__slider-content--left">
+							<h4 className="hero-section__slider-hero-sale">Get 50% Flate</h4>
+							<h2 className="hero-section__slider-hero-title">
+								New Summer Collection
+							</h2>
+							<p className="hero-section__slider-hero-subtitle">
+								World class designers clothes available at a discounted rate!
+							</p>
+							<button className="hero-section__slider-hero-cta button-text">
+								Shop Now
+							</button>
+						</div>
+						<div className="hero-section__slider-content--right">
+							<img className="hero-section-image" src={model2} alt="" />
+						</div>
+					</div>
 				</SwiperSlide>
 			</Swiper>
 		</div>
