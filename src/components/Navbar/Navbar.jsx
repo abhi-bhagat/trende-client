@@ -28,32 +28,32 @@ const Navbar = () => {
 								<Link to="/shop">Shop</Link>
 							</li>
 							<li className="site-navbar__list-pages-item">
-								<Link to="/shop">About Us</Link>
+								<Link to="/about">About Us</Link>
 							</li>
 							<li className="site-navbar__list-pages-item">
-								<Link to="/shop">Contact Us</Link>
+								<Link to="/contact">Contact Us</Link>
 							</li>
 						</ul>
 					</div>
 					<div className="site-navbar__list--right">
 						<ul className="site-navbar__list-actions">
 							<li className="site-navbar__list-actions-item">
-								<Link to="/shop">
+								<Link to="/search">
 									<img src={searchIcon} alt="search icon" />
 								</Link>
 							</li>
 							<li className="site-navbar__list-actions-item">
-								<Link to="/shop">
+								<Link to="/wishlist">
 									<img src={wishList} alt="search icon" />
 								</Link>
 							</li>
 							<li className="site-navbar__list-actions-item">
-								<Link to="/shop">
+								<Link to="/cart">
 									<img src={cartIcon} alt="search icon" />
 								</Link>
 							</li>
 							<li className="site-navbar__list-actions-item">
-								<Link to="/shop">
+								<Link to="/profile">
 									<img src={profileIcon} alt="search icon" />
 								</Link>
 							</li>

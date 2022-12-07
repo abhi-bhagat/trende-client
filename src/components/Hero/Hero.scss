@@ -1,0 +1,35 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.hero-section {
+	height: 70vh;
+	margin-bottom: 0.5rem;
+	&__slider-background {
+		background-image: url("../../assets/images/slider-background.svg");
+	}
+	&-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.mySwiper {
+	// border: 1px solid red;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 1rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	color: $primary !important;
+}
+
+.myClass {
+	background-color: red;
+}

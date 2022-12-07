@@ -8,6 +8,7 @@ body {
 h1 {
 	font-size: 1.5rem;
 	// line-height: 2.35rem;
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 700;
 	color: $font-color;
 	@include tablet {

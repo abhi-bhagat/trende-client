@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 //icons
 import cardsIcons from "../../assets/icons/cards.svg";
 import locationIcon from "../../assets/icons/location.svg";
+import facebook from "../../assets/icons/facebook.svg";
+import instagram from "../../assets/icons/instagram.svg";
+import twitter from "../../assets/icons/twitter.svg";
+import linkedin from "../../assets/icons/linkedin.svg";
+import phone from "../../assets/icons/phone.svg";
+import email from "../../assets/icons/email.svg";
 
 const Footer = () => {
 	return (
@@ -21,8 +27,27 @@ const Footer = () => {
 							</div>
 
 							<div className="site-footer__main-top-social">
-								<ul className="site-footer_main-top-list">
-									<li className="site-footer_main-top-list-item"></li>
+								<ul className="site-footer__main-top-list">
+									<li className="site-footer__main-top-list-item">
+										<span className="social_icon-container">
+											<img src={facebook} alt="" />
+										</span>
+									</li>
+									<li className="site-footer__main-top-list-item">
+										<span className="social_icon-container">
+											<img src={instagram} alt="" />
+										</span>
+									</li>
+									<li className="site-footer__main-top-list-item">
+										<span className="social_icon-container">
+											<img src={twitter} alt="" />
+										</span>
+									</li>
+									<li className="site-footer__main-top-list-item">
+										<span className="social_icon-container">
+											<img src={linkedin} alt="" />
+										</span>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -34,10 +59,15 @@ const Footer = () => {
 										<img src={locationIcon} alt="" /> 5653 Vancouver, BC Canada
 									</p>
 									<p>
-										<img src={locationIcon} alt="" /> +1 604-446-8820
+										<img src={phone} alt="" /> +1 604-446-8820
 									</p>
 									<p>
-										<img src={locationIcon} alt="" /> abhishekbht88@gmail.com
+										<img
+											className="site-footer__main-bottom-contact--img"
+											src={email}
+											alt=""
+										/>{" "}
+										abhishekbht88@gmail.com
 									</p>
 								</div>
 								<div className="site-footer__main-bottom-timings">
@@ -69,7 +99,9 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div className="site-footer__sec">
+				
+			</div>
+            <div className="site-footer__sec">
 					<div className="site-footer__sec-copyright">
 						© 2022 All rights reserved by Abhi
 					</div>
@@ -77,7 +109,6 @@ const Footer = () => {
 						<img src={cardsIcons} alt="" />
 					</div>
 				</div>
-			</div>
 		</div>
 	);
 };

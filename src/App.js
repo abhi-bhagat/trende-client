@@ -11,11 +11,21 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
-			<Navbar />
+				<Navbar />
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/shop" element={<Home />} />
+					<Route path="/shop/:category" element={<Home />} />
+
+					<Route path="/about" element={<Home />} />
+					<Route path="/contact" element={<Home />} />
+					<Route path="/search" element={<Home />} />
+					<Route path="/wishlist" element={<Home />} />
+					<Route path="/cart" element={<Home />} />
+					<Route path="/profile" element={<Home />} />
+					
 				</Routes>
-			<Footer />
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
