@@ -10,15 +10,15 @@ import cartIcon from "../../assets/icons/cart.svg";
 import profileIcon from "../../assets/icons/profile.svg";
 //
 const Navbar = () => {
-	const [isOpen, setOpen] = useState(false);
-	console.log(profileIcon);
+	// const [isOpen, setOpen] = useState(false);
+	// console.log(profileIcon);
 
 	return (
 		<>
 			<div className="site-navbar flex justify-between p-2 ">
 				<div className="site-navbar__logo">
 					<h3 className="site-navbar__heading">
-						<Link to="/">Site Logo</Link>
+						<Link to="/">trendE</Link>
 					</h3>
 				</div>
 				<div className="site-navbar__contents">

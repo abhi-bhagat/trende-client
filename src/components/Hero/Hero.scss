@@ -39,8 +39,12 @@ background-position: center;
 
             }
 			&--left {
+
+text-align: center;
                 @include tablet {
 					width: 50%;
+text-align: left;
+
 				}
                 @include desktop{
                     padding-left: 6rem;

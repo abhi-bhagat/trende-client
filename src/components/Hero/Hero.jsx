@@ -1,6 +1,6 @@
 import "./Hero.scss";
 
-import React, { useRef, useState } from "react";
+// import React, { useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
@@ -11,6 +11,8 @@ import "swiper/scss/navigation";
 
 import model1 from "../../assets/images/model-noback.png";
 import model2 from "../../assets/images/model2-noback.png";
+import model3 from "../../assets/images/model3-noback.png";
+
 
 const Hero = () => {
 	return (
@@ -85,7 +87,7 @@ const Hero = () => {
 							</button>
 						</div>
 						<div className="hero-section__slider-content--right">
-							<img className="hero-section-image" src={model2} alt="" />
+							<img className="hero-section-image" src={model3} alt="" />
 						</div>
 					</div>
 				</SwiperSlide>

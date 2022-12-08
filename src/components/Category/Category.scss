@@ -1,6 +1,19 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
 .category{
     margin: 0 auto;
+&-header{
+    text-align: center;
+    margin-top: 1.75rem;
+    @include tablet{
+    margin-top: 2.75rem;
 
+    }
+}
     &__image{
         max-height: 22rem;
         // object-fit: cover;

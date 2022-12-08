@@ -1,0 +1,202 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.dailyDeals {
+	background-color: #f1f1f1;
+    margin-bottom: 10rem;
+
+	width: 100vw;
+
+	&__container {
+		padding: 1rem 0;
+		width: 95%;
+		margin: 0 auto;
+		@include tablet {
+			width: 80%;
+			margin: 0 auto;
+		}
+		&--top {
+			height: 60vh;
+			&-title {
+				text-align: center;
+			}
+			&-contents {
+				padding: 1rem;
+
+				// margin-bottom: 5rem;
+				height: 85%;
+
+				@include tablet {
+					display: flex;
+					// padding-bottom: 5rem;
+					gap: 1rem;
+				}
+				&-info {
+					@include tablet {
+						width: 30%;
+					}
+					&-title {
+						font-size: 2rem;
+						@include tablet {
+							margin: 1rem 0;
+							line-height: 1.2;
+						}
+					}
+					&-subtitle {
+						font-weight: bold;
+					}
+					&-text {
+						line-height: 1.2;
+						font-size: 0.9rem;
+					}
+					&-price {
+						margin: 0.5rem 0;
+					}
+					&-cta {
+						border: none;
+						color: white;
+						background-color: $secondary;
+						display: inline-block;
+						padding: 0.5rem 1rem;
+					}
+				}
+				&-img {
+					@include tablet {
+						width: 60%;
+					}
+				}
+				&-image {
+					@include tablet {
+						height: 50vh;
+						width: 100%;
+					}
+				}
+				&-counter {
+					display: flex;
+					margin-top: 1rem;
+					gap: 2rem;
+					justify-content: center;
+					@include tablet {
+						flex-direction: column;
+						justify-content: space-around;
+						align-items: center;
+						width: 10%;
+						margin-top: 0;
+					}
+					&--days,
+					&--hour,
+					&--minutes {
+						border: none;
+						// display: inline-block;
+						background-color: $secondary;
+						color: white;
+						// padding: 1rem;
+						border-radius: 0.25rem;
+						text-align: center;
+						@include tablet {
+							padding: 1rem 1rem;
+							font-size: 0.75rem;
+							font-weight: bold;
+							height: 3.5rem;
+							width: 3.5rem;
+						}
+					}
+				}
+			}
+		}
+
+		&--bottom {
+
+			@include tablet {
+				position: relative;
+			}
+		}
+		&__services {
+			background-color: #fff;
+			margin: 1rem 0;
+			box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+			-webkit-box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+			-moz-box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+			@include tablet {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				bottom: -6rem;
+				left: 2%;
+				right: 2%;
+				z-index: 5;
+			}
+			padding: 1rem;
+
+			&--left {
+				display: flex;
+
+				@include tablet {
+					width: 50%;
+				}
+			}
+			&--right {
+				display: flex;
+
+				@include tablet {
+					width: 50%;
+				}
+			}
+
+			&--shipping,
+			&--payment,
+			&--returns,
+			&--contact {
+				display: flex;
+				align-items: center;
+
+				padding: 1rem;
+				gap: 1rem;
+				justify-content: center;
+				width: 50%;
+				min-height: 6rem;
+
+				&-content {
+					width: 90%;
+					h5 {
+						font-size: 0.95rem;
+						line-height: 1.25;
+
+						@include tablet {
+							font-size: 0.9rem;
+						}
+					}
+					p {
+						font-size: 0.75rem;
+						@include tablet {
+							font-size: 0.75rem;
+						}
+					}
+				}
+			}
+
+			&--shipping,
+			&--payment,
+			&--returns {
+				@include tablet {
+					border-right: 2px solid #f1f1f1;
+				}
+			}
+		}
+
+		.iconHolder {
+			background-color: $secondary;
+			border-radius: 50%;
+			padding: 0.5rem;
+		}
+		.standout {
+			color: $secondary;
+		}
+		.strikeout {
+			text-decoration: line-through;
+		}
+	}
+}
