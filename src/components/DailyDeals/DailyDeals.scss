@@ -5,8 +5,10 @@
 
 .dailyDeals {
 	background-color: #f1f1f1;
+@include tablet{
     margin-bottom: 10rem;
 
+}
 	width: 100vw;
 
 	&__container {
@@ -18,7 +20,9 @@
 			margin: 0 auto;
 		}
 		&--top {
-			height: 60vh;
+			@include tablet{
+                height: 60vh;
+            }
 			&-title {
 				text-align: center;
 			}
@@ -94,6 +98,8 @@
 						color: white;
 						// padding: 1rem;
 						border-radius: 0.25rem;
+                        height: 3.5rem;
+							width: 3.5rem;
 						text-align: center;
 						@include tablet {
 							padding: 1rem 1rem;

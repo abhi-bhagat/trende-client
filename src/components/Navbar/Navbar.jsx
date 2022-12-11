@@ -15,6 +15,7 @@ const Navbar = () => {
 
 	return (
 		<>
+			<div className="container-navbar">
 			<div className="site-navbar flex justify-between p-2 ">
 				<div className="site-navbar__logo">
 					<h3 className="site-navbar__heading">
@@ -79,6 +80,7 @@ const Navbar = () => {
 						/>
 					</div>
 				</div>
+			</div>
 			</div>
 			{/* mobile navbar */}
 			<div className="site-navbar__list--mobile transition-all ">

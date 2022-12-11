@@ -22,7 +22,7 @@ const Footer = () => {
 						<div className="site-footer__main-top">
 							<div className="site-footer__main-top-logo">
 								<Link to="/">
-									<h3>Site</h3>
+									<h3>trendE</h3>
 								</Link>
 							</div>
 

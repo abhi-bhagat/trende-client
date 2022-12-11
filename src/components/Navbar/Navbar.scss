@@ -2,6 +2,12 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
+
+.container-navbar{
+	width: 90%;
+	margin: 0 auto;
+}
+
 .site-navbar {
 	//hamburger
 
@@ -9,8 +15,8 @@
 		justify-content: flex-start;
 		padding: 1rem 0;
 		align-items: center;
-		width: 95%;
-		margin: 0 auto;
+		// width: 95%;
+		// margin: 0 auto;
 		@include desktop {
 			padding: 1.5rem 0rem;
 		}

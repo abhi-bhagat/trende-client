@@ -9,9 +9,8 @@
 			width: 97%;
 			margin: 1rem auto;
 		}
-        @include tablet {
+		@include tablet {
 			width: 100%;
-
 		}
 	}
 	//white space
@@ -22,9 +21,9 @@
 		@include tablet {
 			height: 45vh;
 		}
-        @include desktop{
-            height: 27vh;
-        }
+		@include desktop {
+			height: 27vh;
+		}
 	}
 
 	//main
@@ -58,23 +57,36 @@
 					cursor: pointer;
 				}
 			}
+            &-logo{
+                @include tablet{
+                    h3{
+                        font-size: 1.25rem;
+                    }
+                }
+                @include desktop{
+                    
+                        h3{
+                            font-size: 1.75rem;
+                        }
+                    
+                }
+            }
 		}
 		&-bottom {
-
-            @include desktop{
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-            }
+			@include desktop {
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+			}
 			&--left {
 				@include tablet {
 					// width: 50%;
 					display: flex;
 					margin: 1rem 0;
 				}
-                @include desktop{
-                    width: 60%;
-                }
+				@include desktop {
+					width: 60%;
+				}
 			}
 			&--right {
 				@include desktop {
@@ -84,6 +96,11 @@
 			&-contact {
 				@include tablet {
 					width: 50%;
+				}
+				@include desktop {
+					h3 {
+						font-size: 1.25rem;
+					}
 				}
 
 				p {
@@ -108,6 +125,11 @@
 				@include tablet {
 					width: 50%;
 				}
+				@include desktop {
+					h3 {
+						font-size: 1.25rem;
+					}
+				}
 				p {
 					padding: 0.5rem 0.5rem;
 
@@ -118,11 +140,16 @@
 				@include tablet {
 					margin-top: 1.5rem;
 				}
-                @include desktop{
+				@include desktop {
 					padding: 0.5rem 0.5rem;
+                  
+                        h3{
+                            font-size: 1.25rem;
+                        }
+                    
 
-margin-top: 0;
-                }
+					margin-top: 0;
+				}
 				h3 {
 					margin-bottom: 0.5rem;
 				}

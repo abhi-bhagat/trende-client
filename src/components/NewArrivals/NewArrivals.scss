@@ -1,0 +1,39 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.newArrival {
+	&__container {
+        display: flex;
+        justify-content: space-between;
+        gap: .5rem;
+        // flex-wrap: wrap;
+        width: 70%;
+        margin: 0 auto;
+        padding: 2rem 0;
+        @include tablet{
+            padding: 4rem 0;
+        }
+        @include desktop{
+            padding: 6rem 0;
+        }
+		&-card {
+            margin-bottom: 1rem;
+            @include desktop{
+                width: 17rem!important;
+            }
+			&__description {
+				color: #fff;
+				background-color: $secondary;
+				padding: 0.5rem 1rem;
+				cursor: pointer;
+                display: inline-block;
+			}
+           
+		}
+        &-heading{
+            margin-top: .5rem;
+        }
+	}
+}

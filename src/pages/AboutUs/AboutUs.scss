@@ -1,0 +1,142 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.about-page {
+    &__header{
+        width: 100vw;
+        background: url('../../assets/images/about-header.jpeg');
+        object-fit: cover;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no repeat;
+        // background: rgba(0, 0, 0, 0.5); 
+        h2{
+            color: white;
+        background: rgba(0, 0, 0, 0.5); 
+        width: 100vw;
+        height: 30vh;
+
+            
+        }
+    }
+	&__container {
+		width: 90%;
+		margin: 0 auto;
+	}
+	&__hero {
+		height: 70vh;
+		background-color: #f1f1f1;
+		padding: 1rem;
+		margin-bottom: 1rem;
+		overflow: hidden;
+
+		@include tablet {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1.5rem;
+		}
+		@include desktop {
+			justify-content: space-between;
+		}
+		&--left {
+			background-color: #f1f1f1;
+			@include tablet {
+				width: 50%;
+			}
+		}
+		&--right {
+			margin-top: 1rem;
+
+			@include tablet {
+				width: 50%;
+			}
+		}
+		&-subtitle {
+			@include tablet {
+				padding-right: 1.5rem;
+			}
+		}
+	}
+
+	&__services {
+		background-color: #fff;
+		margin: 1rem 0;
+		box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 1px 3px 28px 3px rgba(0, 0, 0, 0.2);
+		@include tablet {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 3rem 0;
+			z-index: 5;
+		}
+		padding: 1rem;
+
+		&--left {
+			display: flex;
+
+			@include tablet {
+				width: 50%;
+			}
+		}
+		&--right {
+			display: flex;
+
+			@include tablet {
+				width: 50%;
+			}
+		}
+
+		&--shipping,
+		&--payment,
+		&--returns,
+		&--contact {
+			display: flex;
+			align-items: center;
+
+			padding: 1rem;
+			gap: 1rem;
+			justify-content: center;
+			width: 50%;
+			min-height: 6rem;
+
+			&-content {
+				width: 90%;
+				h5 {
+					font-size: 0.95rem;
+					line-height: 1.25;
+
+					@include tablet {
+						font-size: 0.9rem;
+					}
+				}
+				p {
+					font-size: 0.75rem;
+					@include tablet {
+						font-size: 0.75rem;
+					}
+				}
+			}
+		}
+
+		&--shipping,
+		&--payment,
+		&--returns {
+			@include tablet {
+				border-right: 2px solid #f1f1f1;
+			}
+		}
+	}
+}
+
+.iconHolder {
+	background-color: $secondary;
+	border-radius: 50%;
+	padding: 0.5rem;
+}

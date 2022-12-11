@@ -1,0 +1,32 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.cardComponent{
+    // border: 2px solid red;
+    // display: inline-block;
+    min-width:15rem;
+    max-width: 17rem;
+    // border-radius: .5rem;
+    // padding: 1rem;
+
+    &-header{
+        h2{
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            line-height: 1.2;
+            @include tablet{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    &-body{
+        img{
+            max-height: 16rem;
+            object-fit: cover
+        }
+    }
+}
