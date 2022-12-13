@@ -3,7 +3,7 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
 
-.container-navbar{
+.container-navbar {
 	width: 90%;
 	margin: 0 auto;
 }
@@ -63,9 +63,8 @@
 				justify-content: flex-end;
 				align-items: center;
 				img {
-					height: 1.15rem;
+					height: 1.5rem;
 					&:hover {
-						fill: red;
 					}
 				}
 			}
@@ -86,14 +85,14 @@
 		// mobile version navbar
 		&--mobile {
 			display: none;
-            z-index: 1;
+			z-index: 1;
 
 			&-list {
 				// height: 95%;
 				@include tablet {
 					display: none;
 				}
-            z-index: 10;
+				z-index: 10;
 
 				width: 100vw;
 				position: fixed;
@@ -127,4 +126,13 @@
 
 .show {
 	display: block;
+}
+
+.cart {
+	position: relative;
+	&__count {
+		background-color: $primary;
+		color: #fff;
+		font-size: 0.65rem;
+	}
 }

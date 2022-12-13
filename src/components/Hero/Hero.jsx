@@ -4,6 +4,7 @@ import "./Hero.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 import "swiper/scss";
 import "swiper/scss/pagination";
@@ -12,7 +13,6 @@ import "swiper/scss/navigation";
 import model1 from "../../assets/images/model-noback.png";
 import model2 from "../../assets/images/model2-noback.png";
 import model3 from "../../assets/images/model3-noback.png";
-
 
 const Hero = () => {
 	return (
@@ -44,9 +44,11 @@ const Hero = () => {
 							<p className="hero-section__slider-hero-subtitle">
 								World class designers clothes available at a discounted rate!
 							</p>
-							<button className="hero-section__slider-hero-cta button-text">
-								Shop Now
-							</button>
+							<Link to="/shop">
+								<button className="hero-section__slider-hero-cta button-text">
+									Shop Now
+								</button>
+							</Link>
 						</div>
 						<div className="hero-section__slider-content--right">
 							<img className="hero-section-image" src={model1} alt="" />
@@ -63,9 +65,11 @@ const Hero = () => {
 							<p className="hero-section__slider-hero-subtitle">
 								World class designers clothes available at a discounted rate!
 							</p>
-							<button className="hero-section__slider-hero-cta button-text">
-								Shop Now
-							</button>
+							<Link to="/shop">
+								<button className="hero-section__slider-hero-cta button-text">
+									Shop Now
+								</button>
+							</Link>
 						</div>
 						<div className="hero-section__slider-content--right">
 							<img className="hero-section-image" src={model2} alt="" />
@@ -82,9 +86,11 @@ const Hero = () => {
 							<p className="hero-section__slider-hero-subtitle">
 								World class designers clothes available at a discounted rate!
 							</p>
-							<button className="hero-section__slider-hero-cta button-text">
-								Shop Now
-							</button>
+							<Link to="/shop">
+								<button className="hero-section__slider-hero-cta button-text">
+									Shop Now
+								</button>
+							</Link>
 						</div>
 						<div className="hero-section__slider-content--right">
 							<img className="hero-section-image" src={model3} alt="" />

@@ -1,7 +1,7 @@
 const widthHandler = (setCurrentWidth) => {
 	const width = window.innerWidth;
 
-	console.log(width);
+	// console.log(width);
 	return setCurrentWidth(width);
 };
 

@@ -14,7 +14,7 @@ const Category = () => {
 			<div class=" category xl:container flex justify-center items-center w-full 2xl:mx-auto lg:px-20 md:py-12 md:px-6 py-9 px-4">
 				<div class=" category__container w-auto md:w-auto grid md:grid-cols-3 lg:w-auto lg:grid-cols-3 grid-cols-1 lg:gap-8 gap-6 max-w-3xl">
 					<div class=" category__image-group relative group ">
-						<Link to="/shop/women">
+						<Link to="/shop/category/women">
 							<img
 								className="lg:block  w-full category__image"
 								src={womanModel}
@@ -29,7 +29,7 @@ const Category = () => {
 					</div>
 
 					<div class="relative group">
-						<Link to="/shop/kids">
+						<Link to="/shop/category/kids">
 							<img
 								class="lg:block  w-full category__image"
 								src={kidModel}
@@ -44,7 +44,7 @@ const Category = () => {
 					</div>
 
 					<div class="relative group">
-						<Link to="/shop/men">
+						<Link to="/shop/category/mens">
 							<img
 								class="lg:block  w-full category__image"
 								src={manModel}

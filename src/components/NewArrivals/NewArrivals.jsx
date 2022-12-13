@@ -42,7 +42,7 @@ const NewArrivals = () => {
 	return (
 		<div className="newArrival">
 			<div className="newArrival__container">
-				{/* <div className="newArrival__container--left"> */}
+				<div className="newArrival__container--left">
 				<Card
 					className="newArrival__container-card"
 					img=""
@@ -55,7 +55,8 @@ const NewArrivals = () => {
 					title=""
 					description={descNew1}
 				/>
-				
+				</div>
+				<div className="newArrival__container--right">
 				<Card
 					className="newArrival__container-card"
 					img={womenClothing}
@@ -68,7 +69,12 @@ const NewArrivals = () => {
 					title=""
 					description={descNew3}
 				/>
-				{/* </div> */}
+				</div>
+
+
+				
+				
+				
 			</div>
 		</div>
 	);

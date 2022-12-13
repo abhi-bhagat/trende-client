@@ -1,0 +1,131 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.cart-page {
+	// height: 80vh;
+	margin: 2rem 0;
+	&__container {
+		width: 90%;
+		margin: 0 auto;
+	}
+	&__cart {
+		&-table {
+			&--heading {
+				display: none;
+				@include tablet {
+					display: flex;
+					padding: 1rem;
+					background-color: #f0f3f4;
+				}
+				&-item {
+					width: 20%;
+					padding: 0 1rem;
+
+					h5 {
+						font-size: 1rem;
+					}
+				}
+			}
+			&--content {
+				display: block;
+				text-align: center;
+				border: 1px solid #f1f1f1;
+				padding: 1rem;
+				margin: 0.5rem 0;
+
+				@include tablet {
+					display: flex;
+					text-align: left;
+				}
+				&-item {
+					margin: 0.5rem 0;
+					padding: 0 1rem;
+
+					@include tablet {
+						width: 20%;
+						height: 15rem;
+					}
+				}
+			}
+		}
+
+        &-nothing{
+            padding: 5rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            img{
+                height: 20rem;
+                width: 20rem;
+            }
+        }
+
+        &--subtotal{
+            // width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 1rem 0;
+            &--top{
+                display: flex;
+                align-items: center;
+                width: 20%;
+                margin: 1rem 0;
+                &-left{
+                    width: 50%;
+                }
+                &-right{
+                    width: 50%;
+                }
+            }
+            &--bottom{
+                width: 20%;
+                margin: 1rem 0;
+
+                button{
+                    background-color: $secondary;
+                    color: #fff;
+                    padding: .5rem 1rem;
+
+                    &:hover{
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+	}
+}
+.arith-back {
+	background-color: $secondary;
+	height: 2rem;
+	width: 2rem;
+	display: inline-block;
+	padding: 0.5rem;
+	margin: 0 1rem;
+	cursor: pointer;
+}
+
+.item {
+	&-qty {
+		p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include tablet {
+				justify-content: flex-start;
+			}
+		}
+	}
+	&-image {
+		max-height: 15rem;
+		object-fit: cover;
+		overflow: hidden;
+	}
+}
+
+.clicks-disabled {
+	pointer-events: none;
+}
