@@ -108,6 +108,9 @@ const Footer = () => {
 					<div className="site-footer__sec-payment">
 						<img src={cardsIcons} alt="" />
 					</div>
+					<div className="site-footer__sec-attribution">
+					<a href="https://storyset.com/business">Business illustrations by Storyset</a>
+					</div>
 				</div>
 		</div>
 	);

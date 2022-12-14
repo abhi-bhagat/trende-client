@@ -18,10 +18,11 @@ const ShoppingCartState = (props) => {
 		return cartItems.find((item) => item.id === product)?.product_qty || 0;
 	};
 
-	const increaseCartQuantity = (id) => {
+	const increaseCartQuantity = (id,qty) => {
 		const exist = cartItems.find((item) => item.id === id);
 		if (!exist) {
 			const newCartItems = [...cartItems, { id: id, quantity: 1 }];
+            
 
 			setCartItems(newCartItems);
 			localStorage.setItem("cartItems", JSON.stringify(newCartItems));

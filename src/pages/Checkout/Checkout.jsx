@@ -2,12 +2,43 @@ import Cart from "../Cart/Cart";
 import { useState, useContext } from "react";
 import shoppingCartContext from "../../context/shoppingCartContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//
+//
+//toast
+const showToastMessage = () => {
+	toast.success("Order Placed!", {
+		position: toast.POSITION.TOP_CENTER,
+		autoClose: 1500,
+		hideProgressBar: false,
+		closeOnClick: false,
+		pauseOnHover: false,
+		draggable: false,
+		progress: undefined,
+		theme: "colored",
+	});
+};
+const errorToastMessage = () => {
+	toast.error("Order Failed!", {
+		position: toast.POSITION.TOP_CENTER,
+		autoClose: 1500,
+		hideProgressBar: false,
+		closeOnClick: false,
+		pauseOnHover: false,
+		draggable: false,
+		progress: undefined,
+		theme: "colored",
+	});
+};
+//
 const Checkout = () => {
 	const navigate = useNavigate();
 	//context Values
 	const myContext = useContext(shoppingCartContext);
 	const cartData = myContext.cartItems;
-
 	if (cartData.length <= 0) {
 		navigate("/shop");
 	}
@@ -31,20 +62,47 @@ const Checkout = () => {
 	];
 
 	const passData = [...billingData, cartData];
-	console.log(`pass data->`, passData);
+	// console.log(`pass data->`, passData);
 
-	const paymentHandler = (e, billingData) => {
+	const paymentHandler = (e, passData) => {
 		e.preventDefault();
 		//make axios post request to /order
+
+		axios
+			.post(`http://localhost:8080/order`, passData)
+			.then((data) => {
+				showToastMessage();
+				setTimeout(() => {
+					localStorage.clear();
+					window.location.reload(true);
+					navigate("/shop");
+				}, 2500);
+			})
+			.catch((e) => {
+				console.log(`Order Failed`);
+				errorToastMessage();
+			});
 	};
 
 	return (
 		<div className="checkout-page">
+			<ToastContainer
+				position="top-center"
+				autoClose={1500}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick={false}
+				rtl={false}
+				pauseOnFocusLoss={false}
+				draggable={false}
+				pauseOnHover={false}
+				theme="colored"
+			/>
 			<div className="w-full flex items-center justify-center  my-12">
 				<form
 					className=" contact-form bg-white shadow rounded py-12 border border-red-400 lg:px-28 px-8"
 					onSubmit={(e) => {
-						paymentHandler(e, billingData);
+						paymentHandler(e, passData);
 					}}
 				>
 					<p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">

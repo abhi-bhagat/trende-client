@@ -1,6 +1,6 @@
 import "./AboutUs.scss";
 
-import heroImage from "../../assets/images/about-us.jpeg";
+import heroImage from "../../assets/images/about-us.svg";
 import shippingIcon from "../../assets/icons/shipping.svg";
 import paymentIcon from "../../assets/icons/payment.svg";
 import returnIcon from "../../assets/icons/returns.svg";

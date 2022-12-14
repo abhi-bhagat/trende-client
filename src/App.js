@@ -57,7 +57,7 @@ function App() {
 							path="/shop/category/:category"
 							element={<Shop products={products} setProducts={setProducts} />}
 						/>
-						<Route path="/product/:id" element={<Shop />} />
+						<Route path="/shop/:id" element={<Shop products={products} setProducts={setProducts}/>} />
 						<Route path="/about" element={<AboutUs />} />
 						<Route path="/contact" element={<Contact />} />
 						<Route

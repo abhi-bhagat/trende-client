@@ -9,6 +9,10 @@
         width: 90%;
         margin: 0 auto;
         padding: 3rem 0;
+        &-prod{
+            width: 80%;
+		margin: 0 auto;
+        }
     }
     &__card{
         &--hover{
@@ -25,6 +29,40 @@ margin-bottom: .5rem;
                 &:hover{
                 background-color:rgba($color: $secondary, $alpha: 1.0);
 
+                }
+            }
+        }
+    }
+}
+
+.qty-minus, .qty-plus{
+    background-color: #000000;
+    color: #000000;
+    display: inline-block;
+    padding: .5rem;
+}
+
+.single-product{
+    &__qty{
+        &-container{
+            &--bottom{
+                margin: .5rem 0;
+                p{
+                    display: inline-block;
+                    margin: 0 1rem;
+                }
+                span{
+                    cursor: pointer;
+                }
+                &--addCart{
+                    border: none;
+                    background-color: $secondary;
+                    margin: 0 1rem;
+                    padding: .5rem 2rem;
+                    color: #fff;
+span{
+    font-size: .75rem;
+}
                 }
             }
         }

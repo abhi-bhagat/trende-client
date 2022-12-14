@@ -10,7 +10,7 @@ import emptyCart from "../../assets/images/empty-cart.svg";
 //
 const Cart = () => {
 	const myContext = useContext(shoppingCartContext);
-	const [flag,setFlag]=useState(true);
+	const [flag, setFlag] = useState(true);
 	const allItems = myContext.cartItems;
 	const myProducts = myContext.products;
 	const navigate = useNavigate();
@@ -20,11 +20,7 @@ const Cart = () => {
 		navigate(`/checkout`);
 	};
 
-	const [total, setTotal] = useState(0);
-
-	const getTotalAmount = (amount) => {
-		setTotal(total + amount);
-	};
+	let total = 0;
 
 	return (
 		<div className="cart-page">
@@ -71,17 +67,19 @@ const Cart = () => {
 											{/* {plusIcon && item.quantity >= pro.product_qty
 												? plusIcon.classList.add("clicks-disabled")
 												: console.log("no")} */}
-											{flag && <span
-												className="arith-back arith-minus"
-												onClick={() => {
-													// if (plusIcon.classList.contains("clicks-disabled")) {
-													// 	plusIcon.classList.remove("clicks-disabled");
-													// }
-													myContext.decreaseCartQuantity(item.id);
-												}}
-											>
-												<img src={minusIcon} alt="" />
-											</span>}
+											{flag && (
+												<span
+													className="arith-back arith-minus"
+													onClick={() => {
+														// if (plusIcon.classList.contains("clicks-disabled")) {
+														// 	plusIcon.classList.remove("clicks-disabled");
+														// }
+														myContext.decreaseCartQuantity(item.id);
+													}}
+												>
+													<img src={minusIcon} alt="" />
+												</span>
+											)}
 
 											{item.quantity > pro.product_qty
 												? pro.product_qty
@@ -108,9 +106,9 @@ const Cart = () => {
 											{item.quantity > pro.product_qty
 												? currencyFormatter(pro.product_price * pro.product_qty)
 												: currencyFormatter(pro.product_price * item.quantity)}
-											{/* {getTotalAmount(pro.product_price * item.quantity)} */}
 										</h6>
 									</div>
+									<div className="hidden">{total=total+(pro.product_price * item.quantity)}</div>
 								</div>
 							);
 						})}
@@ -124,7 +122,7 @@ const Cart = () => {
 									</h4>
 								</div>
 								<div className="cart-page__cart--subtotal--top-right">
-									{total}
+									<h6>{currencyFormatter(total)}</h6>
 								</div>
 							</div>
 							<div className="cart-page__cart--subtotal--bottom">
