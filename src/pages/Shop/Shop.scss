@@ -3,68 +3,68 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
 
-
-.shop-page{
-    &__container{
-        width: 90%;
-        margin: 0 auto;
-        padding: 3rem 0;
-        &-prod{
-            width: 80%;
+.shop-page {
+	&__container {
+		width: 90%;
 		margin: 0 auto;
-        }
-    }
-    &__card{
-        &--hover{
-            &--back{
-                background-color:rgba($color: #000000, $alpha: .7);
-                // border: 2px solid red;
-                padding: .5rem;
-                border-radius: 50%;
-                // width: 20px;
-                // height: 20px;
-margin-bottom: .5rem;
+		padding: 3rem 0;
+		&-prod {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+	&__card {
+		&--hover {
+			&--back {
+				background-color: rgba($color: #000000, $alpha: 0.7);
+				// border: 2px solid red;
+				padding: 0.5rem;
+				border-radius: 50%;
+				// width: 20px;
+				// height: 20px;
+				margin-bottom: 0.5rem;
 
-                display: block;
-                &:hover{
-                background-color:rgba($color: $secondary, $alpha: 1.0);
-
-                }
-            }
-        }
-    }
+				display: block;
+				&:hover {
+					background-color: rgba($color: $secondary, $alpha: 1);
+				}
+			}
+		}
+	}
 }
 
-.qty-minus, .qty-plus{
-    background-color: #000000;
-    color: #000000;
-    display: inline-block;
-    padding: .5rem;
+.qty-minus,
+.qty-plus {
+	background-color: #000000;
+	color: #000000;
+	display: inline-block;
+	padding: 0.5rem;
 }
 
-.single-product{
-    &__qty{
-        &-container{
-            &--bottom{
-                margin: .5rem 0;
-                p{
-                    display: inline-block;
-                    margin: 0 1rem;
-                }
-                span{
+.single-product {
+	&__qty {
+		&-container {
+			&--bottom {
+				margin: 0.5rem 0;
+				p {
+					display: inline-block;
+					margin: 0 1rem;
+				}
+				span {
+					cursor: pointer;
+				}
+				&--addCart {
+					border: none;
+					background-color: $secondary;
+					margin: 0 1rem;
+					padding: 0.5rem 2rem;
+					color: #fff;
                     cursor: pointer;
-                }
-                &--addCart{
-                    border: none;
-                    background-color: $secondary;
-                    margin: 0 1rem;
-                    padding: .5rem 2rem;
-                    color: #fff;
-span{
-    font-size: .75rem;
-}
-                }
-            }
-        }
-    }
+					span {
+						font-size: 0.75rem;
+					}
+				}
+			}
+		}
+	}
 }

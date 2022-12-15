@@ -1,6 +1,6 @@
 import "./Shop.scss";
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import shoppingCartContext from "../../context/shoppingCartContext";
 
@@ -12,11 +12,28 @@ import minusIcon from "../../assets/icons/minus.svg";
 
 //util
 import currencyFormatter from "../../utilities/currencyFormatter/currencyFormatter";
-import { type } from "@testing-library/user-event/dist/type";
+
 //
 const Shop = ({ products, setProducts }) => {
 	const myContext = useContext(shoppingCartContext);
 	const params = useParams();
+	const [qty, setQty] = useState(0);
+
+	const qtyAdd = () => {
+		console.log(products[0].product_qty);
+		if (qty < products[0].product_qty) {
+			setQty(qty + 1);
+		} else {
+			setQty(products[0].product_qty);
+		}
+	};
+	const qtySub = () => {
+		if (qty > 0) {
+			setQty(qty - 1);
+		} else {
+			setQty(0);
+		}
+	};
 
 	const URL = `http://localhost:8080/shop`;
 
@@ -105,24 +122,32 @@ const Shop = ({ products, setProducts }) => {
 									<span
 										className="qty-minus"
 										onClick={() => {
-											// myContext.decreaseCartQuantity(item.id);
+											qtySub();
 										}}
 									>
 										<img src={minusIcon} alt="" />
 									</span>
-									<p>1</p>
+									<p>{qty}</p>
 									<span
 										className="qty-plus"
 										onClick={() => {
-											// myContext.decreaseCartQuantity(item.id);
+											qtyAdd();
 										}}
 									>
 										<img src={addIcon} alt="" />
 									</span>
 
-									<button className="single-product__qty-container--bottom--addCart">
+									<div
+										onClick={() =>
+											myContext.increaseCartQuantity(
+												products[0].product_id,
+												qty
+											)
+										}
+										className="single-product__qty-container--bottom--addCart"
+									>
 										<span>Add to Cart</span>
-									</button>
+									</div>
 								</div>
 							</div>
 						</div>

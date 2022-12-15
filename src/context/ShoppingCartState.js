@@ -18,20 +18,34 @@ const ShoppingCartState = (props) => {
 		return cartItems.find((item) => item.id === product)?.product_qty || 0;
 	};
 
-	const increaseCartQuantity = (id,qty) => {
+	const increaseCartQuantity = (id, qty) => {
 		const exist = cartItems.find((item) => item.id === id);
 		if (!exist) {
-			const newCartItems = [...cartItems, { id: id, quantity: 1 }];
-            
+			let newCartItems;
 
-			setCartItems(newCartItems);
+			if (qty) {
+				newCartItems = [...cartItems, { id: id, quantity: qty }];
+				setCartItems(newCartItems);
+			} else {
+				newCartItems = [...cartItems, { id: id, quantity: 1 }];
+				setCartItems(newCartItems);
+			}
+
 			localStorage.setItem("cartItems", JSON.stringify(newCartItems));
 		} else {
-			const newCartItems = cartItems.map((item) =>
-				item.id === id ? { ...exist, quantity: exist.quantity + 1 } : item
-			);
-			setCartItems(newCartItems);
-			localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+			if (qty) {
+				const newCartItems = cartItems.map((item) =>
+					item.id === id ? { ...exist, quantity: exist.quantity + 1 } : item
+				);
+				setCartItems(newCartItems);
+				localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+			} else {
+				const newCartItems = cartItems.map((item) =>
+					item.id === id ? { ...exist, quantity: exist.quantity + 1 } : item
+				);
+				setCartItems(newCartItems);
+				localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+			}
 		}
 	};
 
