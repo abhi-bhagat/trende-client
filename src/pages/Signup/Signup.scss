@@ -1,0 +1,67 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.signup-page {
+	&__container {
+		width: 90%;
+		margin: 0 auto;
+	}
+	&__content {
+		@include tablet {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			// position:fixed;
+			// top: 50;
+			// bottom:0
+			max-width: 15.625rem;
+		}
+
+		@include tablet {
+			width: 50%;
+		}
+		@include desktop {
+			width: 40%;
+		}
+	}
+	&__form {
+		// position: absolute;
+		// top: 30%;
+		// bottom: 50%;
+		@include tablet {
+			width: 50%;
+		}
+		@include desktop {
+			width: 40%;
+		}
+	}
+	&__button {
+		&--google {
+			background-color: #fff;
+			color: $secondary;
+			border: 1px solid $secondary;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&:hover {
+				background-color: $primary;
+				color: #fff;
+			}
+
+			img {
+				height: 2.25rem;
+				width: 2.25rem;
+				max-height: 2rem;
+				margin-left: 1rem;
+			}
+		}
+	}
+}

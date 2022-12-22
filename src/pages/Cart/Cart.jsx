@@ -17,6 +17,7 @@ const Cart = () => {
 	const clickHandler = (e) => {
 		e.preventDefault();
 		setFlag(false);
+		localStorage.setItem("amount", JSON.stringify(total));
 		navigate(`/checkout`);
 	};
 
@@ -108,7 +109,9 @@ const Cart = () => {
 												: currencyFormatter(pro.product_price * item.quantity)}
 										</h6>
 									</div>
-									<div className="hidden">{total=total+(pro.product_price * item.quantity)}</div>
+									<div className="hidden">
+										{(total = total + pro.product_price * item.quantity)}
+									</div>
 								</div>
 							);
 						})}

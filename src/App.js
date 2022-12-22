@@ -9,6 +9,7 @@ import Contact from "./pages/Contact/Contact";
 import Shop from "./pages/Shop/Shop";
 import Checkout from "./pages/Checkout/Checkout";
 import Error from "./pages/Error/Error";
+import Signup from "./pages/Signup/Signup";
 // import axios from "axios";
 import ShoppingCartState from "./context/ShoppingCartState";
 import Cart from "./pages/Cart/Cart";
@@ -57,7 +58,10 @@ function App() {
 							path="/shop/category/:category"
 							element={<Shop products={products} setProducts={setProducts} />}
 						/>
-						<Route path="/shop/:id" element={<Shop products={products} setProducts={setProducts}/>} />
+						<Route
+							path="/shop/:id"
+							element={<Shop products={products} setProducts={setProducts} />}
+						/>
 						<Route path="/about" element={<AboutUs />} />
 						<Route path="/contact" element={<Contact />} />
 						<Route
@@ -68,6 +72,8 @@ function App() {
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/profile" element={<Home />} />
 						<Route path="/checkout" element={<Checkout />} />
+						<Route path="/signup" element={<Signup />} />
+
 						<Route path="*" element={<Error />} />
 					</Routes>
 					<Footer />

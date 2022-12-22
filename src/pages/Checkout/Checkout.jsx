@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StripeCheckout from "react-stripe-checkout";
 
 //
 //
@@ -49,6 +50,7 @@ const Checkout = () => {
 	const [phone, setPhone] = useState("");
 	const [postalCode, setPostalCode] = useState("");
 	const [address, setAddress] = useState("");
+	const amount = JSON.parse(localStorage.getItem("amount"));
 
 	//data to be passed
 	const billingData = [
@@ -58,6 +60,7 @@ const Checkout = () => {
 			customer_phone: phone,
 			customer_postal: postalCode,
 			customer_address: address,
+			customer_total: amount,
 		},
 	];
 
