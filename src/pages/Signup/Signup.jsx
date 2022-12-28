@@ -1,8 +1,16 @@
 import "./Signup.scss";
 import loginImg from "../../assets/images/login.svg";
-import google from '../../assets/icons/googleLogin.svg'
+import google from "../../assets/icons/googleLogin.svg";
+// import axios from "axios";
+
+import { useAuth0 } from "@auth0/auth0-react";
 const Signup = () => {
-	const loginHandler = () => {};
+	const { loginWithRedirect } = useAuth0();
+
+	const loginHandler = (e) => {
+		e.preventDefault();
+		console.log("clicked");
+	};
 	return (
 		<div className="signup-page">
 			<div className="signup-page__container">
@@ -26,7 +34,10 @@ const Signup = () => {
 							</p>
 
 							<div className="flex items-center justify-center w-full">
-								<button className=" w-full signup-page__button--google mt-9 text-base font-semibold leading-none text-white py-4 px-10  hover:bg-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-400 focus:outline-none">
+								<button
+									onClick={() => loginWithRedirect()}
+									className=" w-full signup-page__button--google mt-9 text-base font-semibold leading-none text-white py-4 px-10  hover:bg-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-400 focus:outline-none"
+								>
 									Sign in with Google
 									<img src={google} alt="" />
 								</button>

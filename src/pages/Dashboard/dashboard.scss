@@ -1,0 +1,11 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.dashboard {
+	&__container {
+		width: 90%;
+		margin: 1rem auto;
+	}
+}

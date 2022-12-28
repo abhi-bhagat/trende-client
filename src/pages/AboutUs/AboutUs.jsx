@@ -5,8 +5,8 @@ import shippingIcon from "../../assets/icons/shipping.svg";
 import paymentIcon from "../../assets/icons/payment.svg";
 import returnIcon from "../../assets/icons/returns.svg";
 import contactIcon from "../../assets/icons/support.svg";
-import githubIcon from "../../assets/icons/github.svg";
-import aboutHeader from '../../assets/images/about-header.jpeg'
+
+
 const AboutUs = () => {
 	return (
 		<div className="about-page">
@@ -654,8 +654,8 @@ const AboutUs = () => {
             </div>
             <div className=" grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:grap-8 md:gap-6 gap-4 mt-10">
                 <div className="relative group">
-                    <img src="https://i.ibb.co/QHS8Ngp/pexels-alana-sousa-3294250-1.png" alt="A picture of a sitting dog" className=" lg:block hidden w-full " />
-                    <img src="https://i.ibb.co/mNPBgQN/pexels-alana-sousa-3294250-1-1.png" alt="A picture of a sitting dog" className="lg:hidden block w-full " />
+                    <img src="https://i.ibb.co/QHS8Ngp/pexels-alana-sousa-3294250-1.png" alt="dog" className=" lg:block hidden w-full " />
+                    <img src="https://i.ibb.co/mNPBgQN/pexels-alana-sousa-3294250-1-1.png" alt="sitting dog" className="lg:hidden block w-full " />
                     <div className=" flex justify-center items-center opacity-0 bg-gradient-to-t from-red-400 via-red-400 to-opacity-30 group-hover:opacity-50 absolute top-0 left-0 h-full w-full" />
                     <div className=" absolute top-0 left-0 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100">
                         <svg width={64} height={64} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

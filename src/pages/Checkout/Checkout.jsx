@@ -1,11 +1,11 @@
-import Cart from "../Cart/Cart";
+// import Cart from "../Cart/Cart";
 import { useState, useContext } from "react";
 import shoppingCartContext from "../../context/shoppingCartContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import StripeCheckout from "react-stripe-checkout";
+// import StripeCheckout from "react-stripe-checkout";
 
 //
 //
@@ -150,7 +150,7 @@ const Checkout = () => {
 							</label>
 							<input
 								tabIndex={0}
-								role="input"
+								
 								arial-label="Please input company name"
 								type="tel"
 								className="contact-form__input text-base leading-none text-gray-900 p-3 focus:oultine-none  mt-4 bg-gray-100 border  border-gray-200 placeholder-gray-100 "

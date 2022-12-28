@@ -1,5 +1,5 @@
 import "./Cart.scss";
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import shoppingCartContext from "../../context/shoppingCartContext";
 import { useNavigate } from "react-router-dom";
 //icon

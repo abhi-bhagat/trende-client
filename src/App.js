@@ -1,53 +1,39 @@
 import "./App.scss";
 //pages
 import Home from "./pages/Home/Home";
-//components
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/Contact/Contact";
 import Shop from "./pages/Shop/Shop";
 import Checkout from "./pages/Checkout/Checkout";
 import Error from "./pages/Error/Error";
 import Signup from "./pages/Signup/Signup";
-// import axios from "axios";
-import ShoppingCartState from "./context/ShoppingCartState";
+import Dashboard from "./pages/Dashboard/dashboard";
+import Admin from "./pages/Admin/Admin";
 import Cart from "./pages/Cart/Cart";
+import Sales from "./pages/Dashboard/Sales/Sales";
+import AddProducts from "./pages/Dashboard/AddProducts/AddProducts";
+import DeleteProducts from "./pages/Dashboard/DeleteProducts/DeleteProducts";
+import UpdateProducts from "./pages/Dashboard/UpdateProducts/UpdateProducts";
+import FAQ from "./pages/Dashboard/FAQ/faq";
+import Invoices from "./pages/Dashboard/Invoices/Invoices";
+import Calendar from "./pages/Dashboard/Calendar/Calendar";
+import Stock from "./pages/Dashboard/Stock/Stock";
+//components
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+//useContext
+import ShoppingCartState from "./context/ShoppingCartState";
 //dep
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 function App() {
-	// const URL = `http://localhost:8080/shop`;
-	// let products = "";
 	const [products, setProducts] = useState("");
-	// const params = useParams();
-
-	// const getAllProducts = (single) => {
-	// 	axios
-	// 		.get(`${URL}${single}`)
-	// 		.then((res) => {
-	// 			console.log(`url {${URL}${single}}`);
-	// 			setProducts(res.data);
-	// 		})
-	// 		.catch((e) => console.log(`Error fetching data ${e}`));
-	// };
-
-	// useEffect(() => {
-	// 	if (params.category) {
-	// 		console.log(`my params= ${params.category}`);
-	// 		const myParam = `/category/men`;
-	// 		getAllProducts(myParam);
-	// 	} else {
-	// 		const myParam = "";
-	// 		getAllProducts(myParam);
-	// 	}
-	// }, []);
 
 	return (
 		<ShoppingCartState>
 			<div className="App">
 				<BrowserRouter>
-					<Navbar />
+					{!window.location.href.includes("/dashboard") && <Navbar />}
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route
@@ -74,9 +60,28 @@ function App() {
 						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/signup" element={<Signup />} />
 
+						{/* {dashboard} */}
+
+						<Route path="/admin" element={<Admin />} />
+						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/dashboard/sales" element={<Sales />} />
+						<Route path="/dashboard/addProduct" element={<AddProducts />} />
+						<Route
+							path="/dashboard/deleteProduct"
+							element={<DeleteProducts />}
+						/>
+						<Route
+							path="/dashboard/updateProduct"
+							element={<UpdateProducts />}
+						/>
+						<Route path="/dashboard/faq" element={<FAQ />} />
+						<Route path="/dashboard/invoices" element={<Invoices />} />
+						<Route path="/dashboard/calendar" element={<Calendar />} />
+						<Route path="/dashboard/stock" element={<Stock />} />
+
 						<Route path="*" element={<Error />} />
 					</Routes>
-					<Footer />
+					{!window.location.href.includes("/dashboard") && <Footer />}
 				</BrowserRouter>
 			</div>
 		</ShoppingCartState>

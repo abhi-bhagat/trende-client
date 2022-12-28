@@ -1,5 +1,5 @@
 import "./Contact.scss";
-import Card from "../../components/Card/Card";
+
 //
 
 import mailIcon from "../../assets/icons/email.svg";
@@ -94,7 +94,7 @@ const Contact = () => {
 									</label>
 									<input
 										tabIndex={0}
-										role="input"
+										
 										arial-label="Please input company name"
 										type="name"
 										className="contact-form__input text-base leading-none text-gray-900 p-3 focus:oultine-none  mt-4 bg-gray-100 border  border-gray-200 placeholder-gray-100 "

@@ -1,0 +1,27 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.sidebar {
+	&__menu {
+		&--collapse {
+			display: flex;
+            justify-content: flex-end;
+            :hover{
+                color: $secondary;
+            }
+			div {
+				padding: 0 !important;
+              
+
+            
+               
+			}
+		}
+	}
+    &__avatar{
+        width: 10rem;
+        height: 10rem;
+    }
+}

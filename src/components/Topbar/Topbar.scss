@@ -1,0 +1,27 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.topbar {
+	&-container {
+		display: flex;
+		flex-direction: column;
+
+		@include tablet {
+			flex-direction: row;
+		}
+	}
+	&-icons {
+		margin: 1rem 0;
+		justify-content: space-evenly;
+		@include tablet {
+			margin: 0;
+		}
+		button {
+			&:hover {
+				background-color: $secondary;
+			}
+		}
+	}
+}

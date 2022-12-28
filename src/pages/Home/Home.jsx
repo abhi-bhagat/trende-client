@@ -1,7 +1,7 @@
 import "./Home.scss";
 import Hero from "../../components/Hero/Hero";
 import Category from "../../components/Category/Category";
-import BestSale from "../../components/BestSale/BestSale";
+// import BestSale from "../../components/BestSale/BestSale";
 import DailyDeals from "../../components/DailyDeals/DailyDeals";
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
 
@@ -12,7 +12,7 @@ const Home = () => {
 			<Category />
 			<NewArrivals />
 			<DailyDeals />
-			<BestSale />
+			{/* <BestSale /> */}
 		</div>
 	);
 };
