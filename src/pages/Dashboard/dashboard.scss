@@ -5,7 +5,12 @@
 
 .dashboard {
 	&__container {
+		display: flex;
+	}
+
+	&__main {
+		flex-grow: 1;
 		width: 90%;
-		margin: 1rem auto;
+		margin: 2rem;
 	}
 }

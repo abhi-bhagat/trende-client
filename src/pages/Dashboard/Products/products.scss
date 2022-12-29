@@ -1,0 +1,14 @@
+@use "../../../styles/partials/global" as *;
+@use "../../../styles/partials/mixins" as *;
+@use "../../../styles/partials/colors" as *;
+@use "../../../styles/partials/variables" as *;
+
+
+.products{
+
+    &__table{
+        &__image{
+            max-height: 9.375rem;
+        }
+    }
+}

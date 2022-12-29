@@ -4,6 +4,11 @@
 @use "../../styles/partials/variables" as *;
 
 .sidebar {
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+height: 100vh;
 	&__menu {
 		&--collapse {
 			display: flex;

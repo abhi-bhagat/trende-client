@@ -18,6 +18,8 @@ import FAQ from "./pages/Dashboard/FAQ/faq";
 import Invoices from "./pages/Dashboard/Invoices/Invoices";
 import Calendar from "./pages/Dashboard/Calendar/Calendar";
 import Stock from "./pages/Dashboard/Stock/Stock";
+import Products from "./pages/Dashboard/Products/products";
+import Alert from "./pages/Dashboard/Alert/alert";
 //components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -78,6 +80,8 @@ function App() {
 						<Route path="/dashboard/invoices" element={<Invoices />} />
 						<Route path="/dashboard/calendar" element={<Calendar />} />
 						<Route path="/dashboard/stock" element={<Stock />} />
+						<Route path="/dashboard/products" element={<Products />} />
+						<Route path="/dashboard/lowProducts" element={<Alert />} />
 
 						<Route path="*" element={<Error />} />
 					</Routes>

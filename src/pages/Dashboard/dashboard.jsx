@@ -10,6 +10,8 @@ import AddProducts from "./AddProducts/AddProducts";
 import DeleteProducts from "./DeleteProducts/DeleteProducts";
 import UpdateProducts from "./UpdateProducts/UpdateProducts";
 import Sales from "./Sales/Sales";
+import Products from "./Products/products";
+
 // styles
 
 const Dashboard = () => {

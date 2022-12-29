@@ -18,6 +18,7 @@ import NotificationImportantOutlinedIcon from "@mui/icons-material/NotificationI
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import avatar from "../../assets/images/avatar.png";
+import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 const Item = ({ title, to, icon, selected, setSelected }) => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
@@ -43,6 +44,7 @@ const Sidebar = () => {
 	const [selected, setSelected] = useState("Dashboard");
 	return (
 		<Box
+			className="sidebar"
 			sx={{
 				"& .pro-sidebar-inner": {
 					background: `${colors.primary[400]} !important`,
@@ -66,10 +68,22 @@ const Sidebar = () => {
 					<MenuItem
 						className="sidebar__menu--collapse"
 						onClick={() => {
-							setIsCollapsed(!isCollapsed);
+							// setIsCollapsed(!isCollapsed);
 						}}
 						icon={
-							isCollapsed ? <MenuOutlinedIcon /> : <ArrowBackOutlinedIcon />
+							isCollapsed ? (
+								<MenuOutlinedIcon
+									onClick={() => {
+										setIsCollapsed(false);
+									}}
+								/>
+							) : (
+								<ArrowBackOutlinedIcon
+									onClick={() => {
+										setIsCollapsed(true);
+									}}
+								/>
+							)
 						}
 						style={{
 							color: colors.grey[100],
@@ -109,7 +123,13 @@ const Sidebar = () => {
 							selected={selected}
 							setSelected={setSelected}
 						/>
-
+						<Item
+							title="Products"
+							to="/dashboard/products"
+							icon={<FormatListBulletedOutlinedIcon />}
+							selected={selected}
+							setSelected={setSelected}
+						/>
 						<Item
 							title="Add Products"
 							to="/dashboard/addProduct"
@@ -125,7 +145,7 @@ const Sidebar = () => {
 							setSelected={setSelected}
 						/>
 						<Item
-							title="Update Products"
+							title="Edit Products"
 							to="/dashboard/updateProduct"
 							icon={<ModeEditOutlineOutlinedIcon />}
 							selected={selected}
@@ -148,7 +168,7 @@ const Sidebar = () => {
 						/>
 						<Item
 							title="Alert"
-							to="/"
+							to="/dashboard/lowProducts"
 							icon={<NotificationImportantOutlinedIcon />}
 							selected={selected}
 							setSelected={setSelected}

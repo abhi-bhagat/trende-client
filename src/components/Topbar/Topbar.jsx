@@ -11,6 +11,7 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 
 const Topbar = () => {
@@ -51,7 +52,7 @@ const Topbar = () => {
 					)}
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
-					<NotificationsNoneOutlinedIcon fontSize="small" />
+					<Link to="/dashboard/lowProducts"><NotificationsNoneOutlinedIcon fontSize="small" /></Link>
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
 					<SettingsOutlinedIcon fontSize="small" />
