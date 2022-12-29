@@ -25,8 +25,8 @@ const Alert = () => {
 		axios
 			.get(`http://localhost:8080/dashboard/lowProducts`)
 			.then((data) => {
-				const abc = Object.entries(data.data);
-				console.log("type is", typeof data.data);
+
+
 				setProducts(data.data);
 			})
 			.catch((e) => console.log(`error fetching products`, e));
