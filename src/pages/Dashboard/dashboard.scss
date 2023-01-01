@@ -5,6 +5,7 @@
 
 .dashboard {
 	&__container {
+		max-height: 100vh;
 		display: flex;
 	}
 
@@ -12,5 +13,7 @@
 		flex-grow: 1;
 		width: 90%;
 		margin: 2rem;
+		height: 100vh;
+		overflow: scroll;
 	}
 }

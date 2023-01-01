@@ -9,7 +9,7 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 
 //
 
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { tokens } from "../../../context/dashboardTheme";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
@@ -25,8 +25,6 @@ const Products = () => {
 		axios
 			.get(`http://localhost:8080/dashboard`)
 			.then((data) => {
-				const abc = Object.entries(data.data);
-				console.log("type is", typeof data.data);
 				setProducts(data.data);
 			})
 			.catch((e) => console.log(`error fetching products`, e));

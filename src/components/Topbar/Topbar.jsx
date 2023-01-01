@@ -8,11 +8,10 @@ import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { Link } from "react-router-dom";
-
 
 const Topbar = () => {
 	const theme = useTheme();
@@ -43,7 +42,6 @@ const Topbar = () => {
 					size="small"
 					sx={{ height: "2rem", width: "2rem" }}
 					onClick={colorMode.toggleColorMode}
-                    
 				>
 					{theme.palette.mode === "dark" ? (
 						<LightModeOutlinedIcon fontSize="small" />
@@ -52,10 +50,14 @@ const Topbar = () => {
 					)}
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
-					<Link to="/dashboard/lowProducts"><NotificationsNoneOutlinedIcon fontSize="small" /></Link>
+					<Link to="/dashboard/lowProducts">
+						<NotificationsNoneOutlinedIcon fontSize="small" />
+					</Link>
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
-					<SettingsOutlinedIcon fontSize="small" />
+					<Link to="/">
+						<ExitToAppOutlinedIcon fontSize="small" />
+					</Link>
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
 					<PersonOutlineOutlinedIcon

@@ -28,6 +28,8 @@ import ShoppingCartState from "./context/ShoppingCartState";
 //dep
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
+//
+
 function App() {
 	const [products, setProducts] = useState("");
 
@@ -66,7 +68,7 @@ function App() {
 
 						<Route path="/admin" element={<Admin />} />
 						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/dashboard/sales" element={<Sales />} />
+						<Route path="/dashboard/sales" element={<Sales sales={"abc"} />} />
 						<Route path="/dashboard/addProduct" element={<AddProducts />} />
 						<Route
 							path="/dashboard/deleteProduct"

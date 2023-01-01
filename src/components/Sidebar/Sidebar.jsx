@@ -41,7 +41,7 @@ const Sidebar = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
 	const [isCollapsed, setIsCollapsed] = useState(false);
-	const [selected, setSelected] = useState("Dashboard");
+	const [selected, setSelected] = useState();
 	return (
 		<Box
 			className="sidebar"
@@ -55,6 +55,7 @@ const Sidebar = () => {
 				"& .pro-inner-item": {
 					padding: ".3125rem 2.1875rem .3125rem 1.25rem",
 				},
+
 				"& .pro-inner-item:hover": {
 					color: "#FF5545 !important",
 				},
@@ -121,7 +122,7 @@ const Sidebar = () => {
 							to="/dashboard"
 							icon={<HomeOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Dashboard")}
 						/>
 						<Item
 							title="Products"
@@ -135,21 +136,21 @@ const Sidebar = () => {
 							to="/dashboard/addProduct"
 							icon={<AddBoxOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Add Products")}
 						/>
 						<Item
 							title="Remove Products"
 							to="/dashboard/deleteProduct"
 							icon={<DeleteOutlineOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Remove Products")}
 						/>
 						<Item
 							title="Edit Products"
 							to="/dashboard/updateProduct"
 							icon={<ModeEditOutlineOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Edit Products")}
 						/>
 
 						<Item
@@ -157,21 +158,21 @@ const Sidebar = () => {
 							to="/dashboard/sales"
 							icon={<TrendingUpOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Sales")}
 						/>
 						<Item
 							title="Calendar"
 							to="/dashboard/calendar"
 							icon={<CalendarMonthOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Celandar")}
 						/>
 						<Item
 							title="Alert"
 							to="/dashboard/lowProducts"
 							icon={<NotificationImportantOutlinedIcon />}
 							selected={selected}
-							setSelected={setSelected}
+							setSelected={() => setSelected("Alert")}
 						/>
 					</Box>
 				</Menu>
