@@ -2,3 +2,12 @@
 @use "../../../styles/partials/mixins" as *;
 @use "../../../styles/partials/colors" as *;
 @use "../../../styles/partials/variables" as *;
+
+
+.addProducts{
+
+    &__form{
+
+        height: 72vh;
+    }
+}
