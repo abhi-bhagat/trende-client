@@ -12,8 +12,11 @@
 	&__main {
 		flex-grow: 1;
 		width: 90%;
-		margin: 2rem;
+		// margin: 2rem;
+		padding: 2rem;
 		height: 100vh;
-		overflow: scroll;
+		overflow:hidden;
+// background-color: red;
+
 	}
 }

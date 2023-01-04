@@ -24,16 +24,18 @@ const Sales = () => {
 	const colors = tokens(theme.palette.mode);
 
 	const [salesData, setSalesData] = useState([]);
+	console.log(localStorage.getItem("theme"));
 
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/dashboard/monthlySales`)
 			.then((data) => {
-				console.log(data.data);
 				setSalesData(data.data);
 			})
 			.catch((e) => console.log(`Error fetching monthly sales`));
 	}, []);
+
+
 
 	const data = salesData;
 	return (
