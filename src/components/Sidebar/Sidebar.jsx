@@ -11,8 +11,6 @@ import { tokens } from "../../context/dashboardTheme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import NotificationImportantOutlinedIcon from "@mui/icons-material/NotificationImportantOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -137,20 +135,6 @@ const Sidebar = () => {
 							icon={<AddBoxOutlinedIcon />}
 							selected={selected}
 							setSelected={() => setSelected("Add Products")}
-						/>
-						<Item
-							title="Remove Products"
-							to="/dashboard/deleteProduct"
-							icon={<DeleteOutlineOutlinedIcon />}
-							selected={selected}
-							setSelected={() => setSelected("Remove Products")}
-						/>
-						<Item
-							title="Edit Products"
-							to="/dashboard/updateProduct"
-							icon={<ModeEditOutlineOutlinedIcon />}
-							selected={selected}
-							setSelected={() => setSelected("Edit Products")}
 						/>
 
 						<Item
