@@ -63,5 +63,13 @@
 				margin-left: 1rem;
 			}
 		}
+
+		&--login{
+			background-color: $secondary;
+			&:hover {
+				background-color: $primary;
+				
+			}
+		}
 	}
 }

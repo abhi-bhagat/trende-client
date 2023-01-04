@@ -27,11 +27,12 @@ import Footer from "./components/Footer/Footer";
 import ShoppingCartState from "./context/ShoppingCartState";
 //dep
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //
 
 function App() {
 	const [products, setProducts] = useState("");
+	useEffect(() => {}, [window.location.href]);
 
 	return (
 		<ShoppingCartState>

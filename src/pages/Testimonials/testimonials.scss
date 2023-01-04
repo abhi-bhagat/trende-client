@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+.testimonials{
+    &__img{
+        width: 9.375rem;
+    }
+}

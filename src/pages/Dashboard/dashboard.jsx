@@ -57,7 +57,7 @@ const Dashboard = () => {
 	};
 
 	getTotalSales(data);
-	console.log(`My sales are `, mySales);
+
 	//
 
 	return (
@@ -115,7 +115,7 @@ const Dashboard = () => {
 									justifyContent="center"
 								>
 									<Boxes
-										title={mySales}
+										title={Number(mySales.toFixed(2))}
 										subtitle="Total Sales"
 										progress="0.50"
 										increase="+21%"
@@ -197,7 +197,7 @@ const Dashboard = () => {
 												fontWeight="bold"
 												color={colors.greenAccent[500]}
 											>
-												{`$ ${mySales}`}
+												{`$ ${mySales.toFixed(2)}`}
 											</Typography>
 										</Box>
 										<Box width={"70%"}>
