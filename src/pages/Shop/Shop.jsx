@@ -4,6 +4,9 @@ import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import shoppingCartContext from "../../context/shoppingCartContext";
 
+//mui
+import { Rating, Slider } from "@mui/material";
+//
 //icons
 import cartIcon from "../../assets/icons/cart-white.svg";
 import wishlistIcon from "../../assets/icons/wishlist-white.svg";
@@ -19,7 +22,7 @@ const Shop = ({ products, setProducts }) => {
 	const params = useParams();
 	const [qty, setQty] = useState(1);
 	const [val, setVal] = useState("");
-
+	const [sliderVal, setSliderVal] = useState([0, 500]);
 	const qtyAdd = () => {
 		// console.log(products[0].product_qty);
 		if (qty < products[0].product_qty) {
@@ -65,6 +68,12 @@ const Shop = ({ products, setProducts }) => {
 				}
 			})
 			.catch((e) => console.log(`Error fetching data ${e}`));
+	};
+
+	//
+	// PRICE SLIDER HANDLER
+	const priceSlideHandler = (e, data) => {
+		setSliderVal(data);
 	};
 
 	//
@@ -185,6 +194,212 @@ const Shop = ({ products, setProducts }) => {
 									border: "none",
 								}}
 							/>
+						</div>
+						<hr className="h-px my-4 bg-gray-200 border-0" />
+						{/* BY BRAND */}
+						<div className="shop-page__filters-brand">
+							<h6 className="shop-page__filters-brand--title mb-2">By Brand</h6>
+
+							<div className="flex items-center mb-1">
+								<input
+									id="zara"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="zara"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Zara
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="puma"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="puma"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Puma
+								</label>
+							</div>
+							<div className="flex items-center mb-4">
+								<input
+									id="aritzia"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="aritzia"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Aritzia
+								</label>
+							</div>
+						</div>
+
+						{/* BY CATEGORY  */}
+						<hr className="h-px my-4 bg-gray-200 border-0" />
+						<div className="shop-page__filters-category">
+							<h6 className="shop-page__filters-category--title mb-2">
+								By Category
+							</h6>
+							<div className="flex items-center mb-1">
+								<input
+									id="men"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="men"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Men
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="women"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="women"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Women
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="kids"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="kids"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									Kids
+								</label>
+							</div>
+						</div>
+						{/* ratings */}
+						<hr className="h-px my-4 bg-gray-200 border-0" />
+
+						<div className="shop-page__filters-ratings">
+							<h6 className="shop-page__filters-category--title mb-2">
+								By Ratings
+							</h6>
+							<div className="flex items-center mb-1">
+								<input
+									id="5-star"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="5-star"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									<Rating name="read-only" value={5} readOnly />
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="4-star"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="4-star"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									<Rating name="read-only" value={4} readOnly />
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="3-star"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="3-star"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									<Rating name="read-only" value={3} readOnly />
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="2-star"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="2-star"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									<Rating name="read-only" value={2} readOnly />
+								</label>
+							</div>
+							<div className="flex items-center mb-1">
+								<input
+									id="1-star"
+									type="checkbox"
+									value=""
+									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+								/>
+								<label
+									htmlFor="1-star"
+									className="ml-2 text-sm font-medium text-black-100"
+								>
+									<Rating name="read-only" value={1} readOnly />
+								</label>
+							</div>
+						</div>
+
+						{/* BY PRICE  */}
+						<hr className="h-px my-4 bg-gray-200 border-0" />
+						<div className="shop-page__filters-price">
+							<h6 className="shop-page__filters-category--title mb-2">
+								By Price
+							</h6>
+							<Slider
+								getAriaLabel={() => "Temperature range"}
+								aria-label="price-slider"
+								value={sliderVal}
+								min={0}
+								max={500}
+								step={50}
+								size="medium"
+								sx={{ color: "#FE6F61" }}
+								onChange={priceSlideHandler}
+								valueLabelDisplay="auto"
+								// getAriaValueText={valuetext}
+							/>
+
+							<div className="flex justify-between">
+								<div className="shop-page__filters-price-title">
+									<p>Min  </p> <p>{sliderVal[0]}</p>
+								</div>
+								<div className="shop-page__filters-price-title">
+									<p>Max </p> <p>{sliderVal[1]}</p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 ">

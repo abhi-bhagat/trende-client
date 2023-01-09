@@ -3,6 +3,7 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
 
+
 .shop-page {
 	&__container {
 		width: 95%;
@@ -32,6 +33,27 @@
 				&:focus{
 					outline: none;
 				}
+			}
+		}
+
+		&-brand{
+			margin-top: 1rem;
+			&--title{
+font-size: .90rem;
+			}
+			&--checkbox{
+			
+			}
+		}
+		&-category{
+			&--title{
+				font-size: .90rem;
+							}
+
+		}
+		&-price{
+			p{
+				font-size: .80rem;
 			}
 		}
 	}
