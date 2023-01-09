@@ -18,6 +18,7 @@ import currencyFormatter from "../../utilities/currencyFormatter/currencyFormatt
 
 //
 const Shop = ({ products, setProducts }) => {
+	console.log(`type `, typeof products);
 	const myContext = useContext(shoppingCartContext);
 	const params = useParams();
 	const [qty, setQty] = useState(1);
@@ -75,6 +76,33 @@ const Shop = ({ products, setProducts }) => {
 	const priceSlideHandler = (e, data) => {
 		setSliderVal(data);
 	};
+	// filter tags
+	const [filterTags, setFilterTags] = useState([]);
+	//check handler
+	const checkHandler = (e) => {
+		if (e.target.checked) {
+			setFilterTags([...filterTags, e.target.value]);
+		} else {
+			setFilterTags(
+				filterTags.filter((filterTag) => filterTag !== e.target.value)
+			);
+		}
+	};
+	console.log(`tag `, filterTags);
+
+	if (products) {
+		// new checked prods
+
+		const remainingProducts = products.filter((product) => {
+			return filterTags.length > 0
+				? filterTags.every((filterTag) =>
+						Object.values(product).includes(filterTag)
+				  )
+				: products;
+		});
+
+		console.log(`I am remaning prod `, remainingProducts);
+	}
 
 	//
 
@@ -204,8 +232,9 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="zara"
 									type="checkbox"
-									value=""
+									value="zara"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+									onChange={(e) => checkHandler(e)}
 								/>
 								<label
 									htmlFor="zara"
@@ -214,11 +243,13 @@ const Shop = ({ products, setProducts }) => {
 									Zara
 								</label>
 							</div>
+
 							<div className="flex items-center mb-1">
 								<input
 									id="puma"
 									type="checkbox"
-									value=""
+									value="puma"
+									onChange={(e) => checkHandler(e)}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -232,7 +263,8 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="aritzia"
 									type="checkbox"
-									value=""
+									value="aritzia"
+									onChange={(e) => checkHandler(e)}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -380,7 +412,6 @@ const Shop = ({ products, setProducts }) => {
 							</h6>
 							<Slider
 								getAriaLabel={() => "Temperature range"}
-								aria-label="price-slider"
 								value={sliderVal}
 								min={0}
 								max={500}
@@ -394,7 +425,7 @@ const Shop = ({ products, setProducts }) => {
 
 							<div className="flex justify-between">
 								<div className="shop-page__filters-price-title">
-									<p>Min  </p> <p>{sliderVal[0]}</p>
+									<p>Min </p> <p>{sliderVal[0]}</p>
 								</div>
 								<div className="shop-page__filters-price-title">
 									<p>Max </p> <p>{sliderVal[1]}</p>
@@ -419,7 +450,7 @@ const Shop = ({ products, setProducts }) => {
 								.map((product) => {
 									return (
 										<div
-											className="relative group mb-12 h-80 "
+											className="shop-page__card relative group mb-12 h-80 "
 											key={product.product_id}
 										>
 											<Link to={`/shop/${product.product_id}`}>
@@ -429,13 +460,27 @@ const Shop = ({ products, setProducts }) => {
 													alt="cloth"
 													className=" sm:block sm:h-full   object-cover h-64"
 												/>
-												<div className="shop-page__card__desc">
-													<p className="shop-page__card__desc-name">
-														{product.product_name}
-													</p>
-													<p className="shop-page__card__desc-price">
-														{currencyFormatter(product.product_price)}
-													</p>
+												<div className="shop-page__card__desc relative">
+													<div>
+														<p className="shop-page__card__desc-name">
+															{product.product_name}
+														</p>
+														<p className="shop-page__card__desc-price">
+															{currencyFormatter(product.product_price)}
+														</p>
+													</div>
+
+													<div>
+														<Rating
+															name="read-only"
+															value={5}
+															readOnly
+															size="small"
+														/>
+													</div>
+													<div className=" mynewclass absolute top-0 right-0 left-0 bottom-0 w-full opacity-0 hover:opacity-100 h-full">
+														Click here to view product ---->
+													</div>
 												</div>
 											</Link>
 											<div className="opacity-0 bg-gradient-to-t from-black via-black to-opacity-30 group-hover:opacity-50 absolute top-0 right-0 h-full w-full" />
