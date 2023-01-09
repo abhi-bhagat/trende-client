@@ -20,7 +20,11 @@ const ShoppingCartState = (props) => {
 
 	const increaseCartQuantity = (id, qty) => {
 		const exist = cartItems.find((item) => item.id === id);
+		console.log(`I am qty`, qty);
+
 		if (!exist) {
+			// console.log(`I am qty`, qty);
+
 			let newCartItems;
 
 			if (qty) {
@@ -34,6 +38,7 @@ const ShoppingCartState = (props) => {
 			localStorage.setItem("cartItems", JSON.stringify(newCartItems));
 		} else {
 			if (qty) {
+				// console.log(`I am qty`, qty);
 				const newCartItems = cartItems.map((item) =>
 					item.id === id ? { ...exist, quantity: exist.quantity + 1 } : item
 				);
@@ -42,6 +47,42 @@ const ShoppingCartState = (props) => {
 			} else {
 				const newCartItems = cartItems.map((item) =>
 					item.id === id ? { ...exist, quantity: exist.quantity + 1 } : item
+				);
+				setCartItems(newCartItems);
+				localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+			}
+		}
+	};
+
+	const singleIncreaseCartQuantity = (id, qty) => {
+		const exist = cartItems.find((item) => item.id === id);
+		console.log(`I am qty`, qty);
+
+		if (!exist) {
+			// console.log(`I am qty`, qty);
+
+			let newCartItems;
+
+			if (qty) {
+				newCartItems = [...cartItems, { id: id, quantity: qty }];
+				setCartItems(newCartItems);
+			} else {
+				newCartItems = [...cartItems, { id: id, quantity: 1 }];
+				setCartItems(newCartItems);
+			}
+
+			localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+		} else {
+			if (qty) {
+				// console.log(`I am qty`, qty);
+				const newCartItems = cartItems.map((item) =>
+					item.id === id ? { ...exist, quantity: exist.quantity + qty } : item
+				);
+				setCartItems(newCartItems);
+				localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+			} else {
+				const newCartItems = cartItems.map((item) =>
+					item.id === id ? { ...exist, quantity: exist.quantity + qty } : item
 				);
 				setCartItems(newCartItems);
 				localStorage.setItem("cartItems", JSON.stringify(newCartItems));
@@ -76,8 +117,9 @@ const ShoppingCartState = (props) => {
 			value={{
 				getItemQuantity,
 				increaseCartQuantity,
-				cartItems,
 				decreaseCartQuantity,
+				singleIncreaseCartQuantity,
+				cartItems,
 				products,
 			}}
 		>

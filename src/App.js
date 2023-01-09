@@ -23,6 +23,7 @@ import Alert from "./pages/Dashboard/Alert/alert";
 //components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import StripeContainer from "./components/Stripe/StripeContainer";
 //useContext
 import ShoppingCartState from "./context/ShoppingCartState";
 //dep

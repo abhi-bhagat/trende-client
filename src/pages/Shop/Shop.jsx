@@ -9,7 +9,7 @@ import cartIcon from "../../assets/icons/cart-white.svg";
 import wishlistIcon from "../../assets/icons/wishlist-white.svg";
 import addIcon from "../../assets/icons/add.svg";
 import minusIcon from "../../assets/icons/minus.svg";
-
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 //util
 import currencyFormatter from "../../utilities/currencyFormatter/currencyFormatter";
 
@@ -17,12 +17,14 @@ import currencyFormatter from "../../utilities/currencyFormatter/currencyFormatt
 const Shop = ({ products, setProducts }) => {
 	const myContext = useContext(shoppingCartContext);
 	const params = useParams();
-	const [qty, setQty] = useState(0);
+	const [qty, setQty] = useState(1);
+	const [val, setVal] = useState("");
 
 	const qtyAdd = () => {
-		console.log(products[0].product_qty);
+		// console.log(products[0].product_qty);
 		if (qty < products[0].product_qty) {
 			setQty(qty + 1);
+			// console.log("ok")
 		} else {
 			setQty(products[0].product_qty);
 		}
@@ -90,6 +92,7 @@ const Shop = ({ products, setProducts }) => {
 		// getAllProducts(params.id);
 
 		return (
+			// return single product
 			<div className="shop-page">
 				<div className="shop-page__container-prod">
 					<div className="flex ">
@@ -139,7 +142,7 @@ const Shop = ({ products, setProducts }) => {
 
 									<div
 										onClick={() =>
-											myContext.increaseCartQuantity(
+											myContext.singleIncreaseCartQuantity(
 												products[0].product_id,
 												qty
 											)
@@ -156,54 +159,92 @@ const Shop = ({ products, setProducts }) => {
 			</div>
 		);
 	} else {
+		//return all the products
 		return (
 			<div className="shop-page">
 				<div className="shop-page__container">
-					<div className="shop-page__filters"></div>
-					<div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 mt-10">
+					<div className="shop-page__filters">
+						<div className="shop-page__filters-search">
+							<input
+								tabIndex={0}
+								arial-label="Please input name"
+								type="text"
+								className=" text-base leading-none text-gray-900 p-3 focus:oultine-none    mt-4 bg-gray-100 border  border-gray-200 placeholder-gray-100"
+								placeholder="Search items"
+								// required
+								value={val}
+								onChange={(e) => setVal(e.target.value)}
+							/>
+							<SearchOutlinedIcon
+								sx={{
+									display: "flex",
+									justifyContent: "center",
+									backgroundColor: "#F3F4F6",
+									height: "3rem",
+									width: "2rem",
+									border: "none",
+								}}
+							/>
+						</div>
+					</div>
+					<div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 ">
 						{products &&
-							products.map((product) => {
-								return (
-									<div
-										className="relative group mb-12 h-80 "
-										key={product.product_id}
-									>
-										<Link to={`/shop/${product.product_id}`}>
-											{" "}
-											<img
-												src={product.product_image}
-												alt="cloth"
-												className=" sm:block sm:h-full   object-cover h-64"
-											/>
-											<div className="shop-page__card__desc">
-												<p className="shop-page__card__desc-name">
-													{product.product_name}
-												</p>
-												<p className="shop-page__card__desc-price">
-													{currencyFormatter(product.product_price)}
-												</p>
-											</div>
-										</Link>
-										<div className="opacity-0 bg-gradient-to-t from-black via-black to-opacity-30 group-hover:opacity-50 absolute top-0 right-0 h-full w-full" />
+							products
+								.filter((prod) => {
+									if (val === "") {
+										return prod;
+									} else if (
+										prod.product_name
+											.toLowerCase()
+											.includes(val.toLocaleLowerCase())
+									) {
+										return prod;
+									}
+								})
+								.map((product) => {
+									return (
+										<div
+											className="relative group mb-12 h-80 "
+											key={product.product_id}
+										>
+											<Link to={`/shop/${product.product_id}`}>
+												{" "}
+												<img
+													src={product.product_image}
+													alt="cloth"
+													className=" sm:block sm:h-full   object-cover h-64"
+												/>
+												<div className="shop-page__card__desc">
+													<p className="shop-page__card__desc-name">
+														{product.product_name}
+													</p>
+													<p className="shop-page__card__desc-price">
+														{currencyFormatter(product.product_price)}
+													</p>
+												</div>
+											</Link>
+											<div className="opacity-0 bg-gradient-to-t from-black via-black to-opacity-30 group-hover:opacity-50 absolute top-0 right-0 h-full w-full" />
 
-										<div className=" absolute top-1 right-2 w-full h-full flex justify-end items-top opacity-0 hover:opacity-100">
-											<div className="shop-page__card--hover z-5">
-												<span
-													className="shop-page__card--hover--back"
-													onClick={() => {
-														myContext.increaseCartQuantity(product.product_id);
-													}}
-												>
-													<img src={cartIcon} alt="" />
-												</span>
-												<span className="shop-page__card--hover--back">
-													<img src={wishlistIcon} alt="" />
-												</span>
+											<div className=" absolute top-1 right-2 w-full h-full flex justify-end items-top opacity-0 hover:opacity-100">
+												<div className="shop-page__card--hover z-5">
+													<span
+														className="shop-page__card--hover--back"
+														onClick={() => {
+															myContext.increaseCartQuantity(
+																product.product_id
+															);
+														}}
+													>
+														<img src={cartIcon} alt="" />
+													</span>
+													<span className="shop-page__card--hover--back">
+														<img src={wishlistIcon} alt="" />
+													</span>
+												</div>
 											</div>
 										</div>
-									</div>
-								);
-							})}
+									);
+								})}
 					</div>
 				</div>
 			</div>

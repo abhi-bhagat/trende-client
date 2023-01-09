@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import StripeCheckout from "react-stripe-checkout";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 //
 //
@@ -87,6 +87,27 @@ const Checkout = () => {
 			});
 	};
 
+	//stripe
+	// const stripe = useStripe();
+	// const elements = useElements();
+
+	// const handleSubmit = async (event) => {
+	// 	event.preventDefault();
+	// 	const { error, paymentMethod } = await stripe.createPaymentMethod({
+	// 		type: "card",
+	// 		card: elements.getElement(CardElement),
+	// 	});
+
+	// 	if (!error) {
+	// 		console.log("Stripe 23 | token generated!", paymentMethod);
+	// 		//send token to backend here
+	// 	} else {
+	// 		console.log(error.message);
+	// 	}
+	// };
+
+	//
+
 	return (
 		<div className="checkout-page">
 			<ToastContainer
@@ -106,6 +127,7 @@ const Checkout = () => {
 					className=" contact-form bg-white shadow rounded py-12 border border-red-400 lg:px-28 px-8"
 					onSubmit={(e) => {
 						paymentHandler(e, passData);
+						// handleSubmit();
 					}}
 				>
 					<p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
@@ -150,7 +172,6 @@ const Checkout = () => {
 							</label>
 							<input
 								tabIndex={0}
-								
 								arial-label="Please input company name"
 								type="tel"
 								className="contact-form__input text-base leading-none text-gray-900 p-3 focus:oultine-none  mt-4 bg-gray-100 border  border-gray-200 placeholder-gray-100 "
@@ -200,6 +221,7 @@ const Checkout = () => {
 						By clicking submit you agree to our terms of service, privacy policy
 						and how we use data as stated
 					</p>
+					{/* <CardElement /> */}
 					<div className="flex items-center justify-center w-full">
 						<button className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-red-400  hover:bg-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-400 focus:outline-none">
 							Place Order
