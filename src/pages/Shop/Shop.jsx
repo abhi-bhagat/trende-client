@@ -18,12 +18,14 @@ import currencyFormatter from "../../utilities/currencyFormatter/currencyFormatt
 
 //
 const Shop = ({ products, setProducts }) => {
-	console.log(`type `, typeof products);
 	const myContext = useContext(shoppingCartContext);
 	const params = useParams();
 	const [qty, setQty] = useState(1);
 	const [val, setVal] = useState("");
 	const [sliderVal, setSliderVal] = useState([0, 500]);
+
+	const [filtered, setFiltered] = useState([]);
+
 	const qtyAdd = () => {
 		// console.log(products[0].product_qty);
 		if (qty < products[0].product_qty) {
@@ -60,6 +62,7 @@ const Shop = ({ products, setProducts }) => {
 			.then((res) => {
 				if (!single) {
 					setProducts(res.data);
+					setFiltered(res.data);
 				} else {
 					const foundProduct = res.data.find(
 						(product) => product.product_id === params.id
@@ -76,6 +79,7 @@ const Shop = ({ products, setProducts }) => {
 	const priceSlideHandler = (e, data) => {
 		setSliderVal(data);
 	};
+
 	// filter tags
 	const [filterTags, setFilterTags] = useState([]);
 	//check handler
@@ -88,21 +92,34 @@ const Shop = ({ products, setProducts }) => {
 			);
 		}
 	};
-	console.log(`tag `, filterTags);
 
-	if (products) {
-		// new checked prods
+	const mySetProd = (e) => {
 
-		const remainingProducts = products.filter((product) => {
-			return filterTags.length > 0
-				? filterTags.every((filterTag) =>
-						Object.values(product).includes(filterTag)
-				  )
-				: products;
+
+		let remainingProducts = products.filter((product) => {
+			if (filterTags.length > 0) {
+				filterTags.forEach((filterTag) => {
+					if (
+						product.product_company.toLowerCase() === filterTag.toLowerCase()
+					) {
+						abc = [...abc, product];
+
+						setFiltered(abc);
+					}
+				});
+			} else {
+				setFiltered(products);
+			}
 		});
+	};
 
-		console.log(`I am remaning prod `, remainingProducts);
-	}
+	useEffect(() => {
+		if (products) {
+			mySetProd();
+		}
+	}, [filterTags]);
+
+	let abc = [];
 
 	//
 
@@ -234,7 +251,9 @@ const Shop = ({ products, setProducts }) => {
 									type="checkbox"
 									value="zara"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
-									onChange={(e) => checkHandler(e)}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 								/>
 								<label
 									htmlFor="zara"
@@ -249,7 +268,9 @@ const Shop = ({ products, setProducts }) => {
 									id="puma"
 									type="checkbox"
 									value="puma"
-									onChange={(e) => checkHandler(e)}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -264,7 +285,10 @@ const Shop = ({ products, setProducts }) => {
 									id="aritzia"
 									type="checkbox"
 									value="aritzia"
-									onChange={(e) => checkHandler(e)}
+									onChange={(e) => {
+										checkHandler(e);
+										// mySetProd();
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -435,7 +459,8 @@ const Shop = ({ products, setProducts }) => {
 					</div>
 					<div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 ">
 						{products &&
-							products
+							filtered
+
 								.filter((prod) => {
 									if (val === "") {
 										return prod;
@@ -473,13 +498,13 @@ const Shop = ({ products, setProducts }) => {
 													<div>
 														<Rating
 															name="read-only"
-															value={5}
+															value={product.product_stars}
 															readOnly
 															size="small"
 														/>
 													</div>
 													<div className=" mynewclass absolute top-0 right-0 left-0 bottom-0 w-full opacity-0 hover:opacity-100 h-full">
-														Click here to view product ---->
+														Click here to view product
 													</div>
 												</div>
 											</Link>
