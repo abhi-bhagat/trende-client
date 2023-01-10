@@ -4,6 +4,11 @@ import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import shoppingCartContext from "../../context/shoppingCartContext";
 
+// framer motion
+import { motion } from "framer-motion";
+
+//
+
 //mui
 import { Rating, Slider } from "@mui/material";
 //
@@ -23,9 +28,10 @@ const Shop = ({ products, setProducts }) => {
 	const [qty, setQty] = useState(1);
 	const [val, setVal] = useState("");
 	const [sliderVal, setSliderVal] = useState([0, 500]);
-
+	//filters
 	const [filtered, setFiltered] = useState([]);
-
+	const [ratings, setRatings] = useState([]);
+	const [category, setCategory] = useState([]);
 	const qtyAdd = () => {
 		// console.log(products[0].product_qty);
 		if (qty < products[0].product_qty) {
@@ -50,11 +56,11 @@ const Shop = ({ products, setProducts }) => {
 		axios
 			.get(`${URL}/category/${category}`)
 			.then((res) => {
-				setProducts(res.data);
+				setFiltered(res.data);
 			})
 			.catch((e) => console.log(`Error fetching category ${e}`));
 	};
-
+	//
 	//get all products
 	const getAllProducts = (single) => {
 		axios
@@ -82,6 +88,7 @@ const Shop = ({ products, setProducts }) => {
 
 	// filter tags
 	const [filterTags, setFilterTags] = useState([]);
+	// FILTER HANDLERS
 	//check handler
 	const checkHandler = (e) => {
 		if (e.target.checked) {
@@ -93,18 +100,28 @@ const Shop = ({ products, setProducts }) => {
 		}
 	};
 
+	const ratingHandler = () => {};
+	const categoryHandler = () => {};
+
 	const mySetProd = (e) => {
-
-
 		let remainingProducts = products.filter((product) => {
 			if (filterTags.length > 0) {
+				console.log(`TAGS`, filterTags);
 				filterTags.forEach((filterTag) => {
-					if (
-						product.product_company.toLowerCase() === filterTag.toLowerCase()
-					) {
+					const valArr = Object.values(product);
+					const tArr = valArr.toString();
+					const filterArr = tArr.split(",");
+					console.log(`valArr`, filterArr);
+					console.log(`filterArr`, filterTag);
+
+					if (filterArr.includes(filterTag)) {
+						console.log(`if running`);
+
 						abc = [...abc, product];
 
 						setFiltered(abc);
+					} else {
+						console.log(`else running`);
 					}
 				});
 			} else {
@@ -112,7 +129,7 @@ const Shop = ({ products, setProducts }) => {
 			}
 		});
 	};
-
+	// for filtering product by brand
 	useEffect(() => {
 		if (products) {
 			mySetProd();
@@ -215,7 +232,7 @@ const Shop = ({ products, setProducts }) => {
 	} else {
 		//return all the products
 		return (
-			<div className="shop-page">
+			<div layout className="shop-page">
 				<div className="shop-page__container">
 					<div className="shop-page__filters">
 						<div className="shop-page__filters-search">
@@ -249,7 +266,7 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="zara"
 									type="checkbox"
-									value="zara"
+									value="Zara"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 									onChange={(e) => {
 										checkHandler(e);
@@ -265,9 +282,9 @@ const Shop = ({ products, setProducts }) => {
 
 							<div className="flex items-center mb-1">
 								<input
-									id="puma"
+									id="Puma"
 									type="checkbox"
-									value="puma"
+									value="Puma"
 									onChange={(e) => {
 										checkHandler(e);
 									}}
@@ -284,7 +301,7 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="aritzia"
 									type="checkbox"
-									value="aritzia"
+									value="Aritzia"
 									onChange={(e) => {
 										checkHandler(e);
 										// mySetProd();
@@ -310,8 +327,11 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="men"
 									type="checkbox"
-									value=""
+									value="Mens"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 								/>
 								<label
 									htmlFor="men"
@@ -324,8 +344,11 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="women"
 									type="checkbox"
-									value=""
+									value="Women"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 								/>
 								<label
 									htmlFor="women"
@@ -338,8 +361,11 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="kids"
 									type="checkbox"
-									value=""
+									value="Kids"
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 								/>
 								<label
 									htmlFor="kids"
@@ -360,7 +386,10 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="5-star"
 									type="checkbox"
-									value=""
+									value="5"
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -374,7 +403,10 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="4-star"
 									type="checkbox"
-									value=""
+									value={4}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -388,7 +420,10 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="3-star"
 									type="checkbox"
-									value=""
+									value={3}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -402,7 +437,10 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="2-star"
 									type="checkbox"
-									value=""
+									value={2}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -416,7 +454,10 @@ const Shop = ({ products, setProducts }) => {
 								<input
 									id="1-star"
 									type="checkbox"
-									value=""
+									value={1}
+									onChange={(e) => {
+										checkHandler(e);
+									}}
 									className="shop-page__filters-brand--checkbox  w-4 h-4 text-red-600 bg-gray-100 border-gray-300"
 								/>
 								<label
@@ -457,7 +498,10 @@ const Shop = ({ products, setProducts }) => {
 							</div>
 						</div>
 					</div>
-					<div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 ">
+					<motion.div
+						layout
+						className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 "
+					>
 						{products &&
 							filtered
 
@@ -474,7 +518,8 @@ const Shop = ({ products, setProducts }) => {
 								})
 								.map((product) => {
 									return (
-										<div
+										<motion.div
+											layout
 											className="shop-page__card relative group mb-12 h-80 "
 											key={product.product_id}
 										>
@@ -527,10 +572,10 @@ const Shop = ({ products, setProducts }) => {
 													</span>
 												</div>
 											</div>
-										</div>
+										</motion.div>
 									);
 								})}
-					</div>
+					</motion.div>
 				</div>
 			</div>
 		);
