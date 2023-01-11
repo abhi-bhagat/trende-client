@@ -51,7 +51,7 @@ const Dashboard = () => {
 	//
 	const getTotalSales = (data) => {
 		data.forEach((element) => {
-			console.log(element.Sales);
+
 			mySales = mySales + element.Sales;
 		});
 	};

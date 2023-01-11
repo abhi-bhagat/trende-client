@@ -106,22 +106,22 @@ const Shop = ({ products, setProducts }) => {
 	const mySetProd = (e) => {
 		let remainingProducts = products.filter((product) => {
 			if (filterTags.length > 0) {
-				console.log(`TAGS`, filterTags);
+				// console.log(`TAGS`, filterTags);
 				filterTags.forEach((filterTag) => {
 					const valArr = Object.values(product);
 					const tArr = valArr.toString();
 					const filterArr = tArr.split(",");
-					console.log(`valArr`, filterArr);
-					console.log(`filterArr`, filterTag);
+					// console.log(`valArr`, filterArr);
+					// console.log(`filterArr`, filterTag);
 
 					if (filterArr.includes(filterTag)) {
-						console.log(`if running`);
+						// console.log(`if running`);
 
 						abc = [...abc, product];
 
 						setFiltered(abc);
 					} else {
-						console.log(`else running`);
+						// console.log(`else running`);
 					}
 				});
 			} else {
@@ -470,7 +470,7 @@ const Shop = ({ products, setProducts }) => {
 						</div>
 
 						{/* BY PRICE  */}
-						<hr className="h-px my-4 bg-gray-200 border-0" />
+						{/* <hr className="h-px my-4 bg-gray-200 border-0" />
 						<div className="shop-page__filters-price">
 							<h6 className="shop-page__filters-category--title mb-2">
 								By Price
@@ -496,10 +496,10 @@ const Shop = ({ products, setProducts }) => {
 									<p>Max </p> <p>{sliderVal[1]}</p>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 					<motion.div
-						layout
+						layout="true"
 						className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8  md:gap-6 gap-4 "
 					>
 						{products &&
@@ -519,7 +519,7 @@ const Shop = ({ products, setProducts }) => {
 								.map((product) => {
 									return (
 										<motion.div
-											layout
+											layout="true"
 											className="shop-page__card relative group mb-12 h-80 "
 											key={product.product_id}
 										>
