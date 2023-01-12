@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 //
 //

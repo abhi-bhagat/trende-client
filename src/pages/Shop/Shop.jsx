@@ -11,7 +11,7 @@ import avatar from "../../assets/images/avatar.png";
 //
 
 //mui
-import { Rating, Slider } from "@mui/material";
+import { Rating} from "@mui/material";
 //
 //icons
 import cartIcon from "../../assets/icons/cart-white.svg";
@@ -121,8 +121,8 @@ const Shop = ({ products, setProducts }) => {
 		}
 	};
 
-	const ratingHandler = () => {};
-	const categoryHandler = () => {};
+	// const ratingHandler = () => {};
+	// const categoryHandler = () => {};
 
 	const mySetProd = (e) => {
 		let remainingProducts = products.filter((product) => {

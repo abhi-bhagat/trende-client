@@ -8,7 +8,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import Error from "./pages/Error/Error";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/Dashboard/dashboard";
-import Admin from "./pages/Admin/Admin";
+// import Admin from "./pages/Admin/Admin";
 import Cart from "./pages/Cart/Cart";
 import Sales from "./pages/Dashboard/Sales/Sales";
 import AddProducts from "./pages/Dashboard/AddProducts/AddProducts";
@@ -23,17 +23,17 @@ import Alert from "./pages/Dashboard/Alert/alert";
 //components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import StripeContainer from "./components/Stripe/StripeContainer";
+// import StripeContainer from "./components/Stripe/StripeContainer";
 //useContext
 import ShoppingCartState from "./context/ShoppingCartState";
 //dep
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 //
 
 function App() {
 	const [products, setProducts] = useState("");
-	useEffect(() => {}, [window.location.href]);
+	// useEffect(() => {}, [window.location.href]);
 
 	return (
 		<ShoppingCartState>

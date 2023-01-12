@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 //axios
 
 //calender
-import FullCalendar, { formDate } from "@fullcalendar/react";
+import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -23,7 +23,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 //mui
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 
-import { color } from "@mui/system";
+// import { color } from "@mui/system";
 import { formatDate } from "@fullcalendar/core";
 
 const Calendar = () => {
@@ -31,7 +31,7 @@ const Calendar = () => {
 	const [theme, colorMode] = useMode();
 	const colors = tokens(theme.palette.mode);
 	const [currentEvents, setCurrentEvents] = useState([]);
-	const [modalOpen, setModalOpen] = useState(false);
+	// const [modalOpen, setModalOpen] = useState(false);
 
 	//handle date click
 
@@ -50,7 +50,7 @@ const Calendar = () => {
 				allDay: selected.allDay,
 			});
 		}
-		setModalOpen(false);
+		// setModalOpen(false);
 	};
 
 	const handleEventClick = () => {};

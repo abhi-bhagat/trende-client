@@ -5,7 +5,7 @@ import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { useAuth0 } from "@auth0/auth0-react";
@@ -25,7 +25,7 @@ const Signup = () => {
 
 	//
 	// const { loginWithRedirect } = useAuth0();
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	// modal open/close handler
 	const closeModalHandler = () => {
@@ -61,7 +61,7 @@ const Signup = () => {
 	const showToastMessage = () => {
 		toast.success("Signed Up!", {
 			position: toast.POSITION.TOP_CENTER,
-			autoClose: 500,
+			autoClose: 200,
 			hideProgressBar: false,
 			closeOnClick: false,
 			pauseOnHover: false,

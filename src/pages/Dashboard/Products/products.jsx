@@ -10,7 +10,7 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 //
 
 import { Box, IconButton } from "@mui/material";
-import { tokens } from "../../../context/dashboardTheme";
+// import { tokens } from "../../../context/dashboardTheme";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [theme, colorMode] = useMode();
-	const colors = tokens(theme.palette.mode);
+	// const colors = tokens(theme.palette.mode);
 
 	// getting products
 	const getProducts = () => {
@@ -114,7 +114,7 @@ const Products = () => {
 
 	}
 
-	
+
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>

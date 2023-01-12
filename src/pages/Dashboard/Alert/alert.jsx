@@ -9,8 +9,8 @@ import Sidebar from "../../../components/Sidebar/Sidebar";
 
 //
 
-import { Box, useTheme } from "@mui/material";
-import { tokens } from "../../../context/dashboardTheme";
+import { Box} from "@mui/material";
+// import { tokens } from "../../../context/dashboardTheme";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ const Alert = () => {
 	const [theme, colorMode] = useMode();
 
 	// const theme = useTheme();
-	const colors = tokens(theme.palette.mode);
+	// const colors = tokens(theme.palette.mode);
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/dashboard/lowProducts`)

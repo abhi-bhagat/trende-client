@@ -14,14 +14,14 @@ import Sales_component from "../../components/Sales_component/Sales_component";
 import Boxes from "../../components/Boxes/Boxes";
 // styles
 //icons
-import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
+
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
-import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
+
 import PersonAddAlt1OutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 
 //
-import { Navigate, useHref, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 	const [theme, colorMode] = useMode();
@@ -32,7 +32,7 @@ const Dashboard = () => {
 
 	//navigate
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	let mySales = 0;
 	//fetch total sales
 
@@ -69,8 +69,7 @@ const Dashboard = () => {
 
 	if (!localStorage.getItem("name")) {
 		// navigate("/admin");
-		window.location.href=`http://localhost:3000/admin`
-
+		window.location.href = `http://localhost:3000/admin`;
 	}
 
 	return (

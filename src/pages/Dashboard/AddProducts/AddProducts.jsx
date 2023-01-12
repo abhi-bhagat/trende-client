@@ -15,7 +15,7 @@ import Header from "../../../components/Header/Header";
 import { Box } from "@mui/system";
 
 //icons
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+
 //
 //toastify
 import { ToastContainer, toast } from "react-toastify";
@@ -89,8 +89,7 @@ const AddProducts = () => {
 	};
 	if (!localStorage.getItem("name")) {
 		// navigate("/admin");
-		window.location.href=`http://localhost:3000/admin`
-
+		window.location.href = `http://localhost:3000/admin`;
 	}
 	return (
 		<ColorModeContext.Provider value={colorMode}>
@@ -201,7 +200,6 @@ const AddProducts = () => {
 													placeholder="Please input quantity"
 													required
 													value={qty}
-													
 													onChange={(e) => setQty(e.target.value)}
 												/>
 											</div>
@@ -258,7 +256,6 @@ const AddProducts = () => {
 													placeholder="Please input company name"
 													required
 													value={company}
-													
 													onChange={(e) => setCompany(e.target.value)}
 												/>
 											</div>
