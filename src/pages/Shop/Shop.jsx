@@ -3,10 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import shoppingCartContext from "../../context/shoppingCartContext";
+import { v4 as uuidv4 } from "uuid";
 // import Rating from "@mui/material";
 // framer motion
 import { motion } from "framer-motion";
-import avatar from '../../assets/images/avatar.png'
+import avatar from "../../assets/images/avatar.png";
 //
 
 //mui
@@ -27,11 +28,37 @@ const Shop = ({ products, setProducts }) => {
 	const params = useParams();
 	const [qty, setQty] = useState(1);
 	const [val, setVal] = useState("");
-	const [sliderVal, setSliderVal] = useState([0, 500]);
+
 	//filters
 	const [filtered, setFiltered] = useState([]);
-	const [ratings, setRatings] = useState([]);
-	const [category, setCategory] = useState([]);
+	// comment
+	const [comment, setComment] = useState("");
+
+	//comment handler
+	const addCommentHandler = (e, id, review) => {
+		e.preventDefault();
+		console.log(`review type `, typeof review);
+		const newRev = JSON.parse(review);
+		console.log(newRev);
+		const newComment = { comment: comment, commentId: uuidv4() };
+		newRev.unshift(newComment);
+		console.log(newRev);
+		const fComment = JSON.stringify(newRev);
+		console.log(fComment);
+
+		const commentData = { comment: fComment, id: id };
+
+		console.log(`c data--`, commentData.comment);
+		axios
+
+			.post(`http://localhost:8080/shop/${id}/postComment`, commentData)
+			.then((data) => {
+				console.log(`Comment posted`);
+			})
+			.catch((e) => console.log(`error posting comment`));
+	};
+
+	//
 	const qtyAdd = () => {
 		// console.log(products[0].product_qty);
 		if (qty < products[0].product_qty) {
@@ -229,7 +256,16 @@ const Shop = ({ products, setProducts }) => {
 							<h4 className="single-product__desc-container--heading">
 								Write a Review
 							</h4>
-							<form action="">
+							<form
+								action=""
+								onSubmit={(e) => {
+									addCommentHandler(
+										e,
+										products[0].product_id,
+										products[0].product_reviews
+									);
+								}}
+							>
 								<div className="w-full flex flex-col mt-1">
 									{/* <label className="text-base font-semibold leading-none text-gray-800">
 									Review
@@ -239,9 +275,9 @@ const Shop = ({ products, setProducts }) => {
 										aria-label="leave a message"
 										type="name"
 										className="contact-form__textarea h-28 text-base leading-none text-gray-900 p-3 focus:oultine-none  mt-4 bg-gray-100 border  border-gray-200 placeholder-black-500 resize-none"
-										// defaultValue={address}
+										defaultValue={comment}
 										placeholder="Please input your review"
-										// onChange={(e) => setAddress(e.target.value)}
+										onChange={(e) => setComment(e.target.value)}
 									/>
 								</div>
 
@@ -272,23 +308,33 @@ const Shop = ({ products, setProducts }) => {
 								{products[0] &&
 									JSON.parse(products[0].product_reviews).map((comment) => {
 										return (
-											<div className="flex w-full border-2 border-solid border-grey flex-col md:flex-row bg-white mt-4">
-												<div className="flex items-center justify-center w-20">
+											<motion.div
+												layout
+												className="flex w-full border-2 border-solid border-grey flex-col md:flex-row bg-white mt-4"
+												key={comment.commentId}
+											>
+												<motion.div
+													layout
+													className="flex items-center justify-center w-20"
+												>
 													<img
 														className="  rounded-full  w-14 h-14"
 														src={avatar}
 														alt=""
 													/>
-												</div>
-												<div className="p-6 flex flex-col justify-start">
+												</motion.div>
+												<motion.div
+													layout
+													className="p-6 flex flex-col justify-start"
+												>
 													<h5 className="text-gray-900 text-xl font-medium mb-2">
 														Anonymous
 													</h5>
 													<p className="text-gray-700 text-base mb-4">
 														{comment.comment}
 													</p>
-												</div>
-											</div>
+												</motion.div>
+											</motion.div>
 										);
 									})}
 							</div>
