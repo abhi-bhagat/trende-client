@@ -3,10 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
 import shoppingCartContext from "../../context/shoppingCartContext";
-
+// import Rating from "@mui/material";
 // framer motion
 import { motion } from "framer-motion";
-
+import avatar from '../../assets/images/avatar.png'
 //
 
 //mui
@@ -78,12 +78,6 @@ const Shop = ({ products, setProducts }) => {
 				}
 			})
 			.catch((e) => console.log(`Error fetching data ${e}`));
-	};
-
-	//
-	// PRICE SLIDER HANDLER
-	const priceSlideHandler = (e, data) => {
-		setSliderVal(data);
 	};
 
 	// filter tags
@@ -186,6 +180,9 @@ const Shop = ({ products, setProducts }) => {
 								<h6>{currencyFormatter(products[0].product_price)}</h6>
 							)}
 							{products[0] && (
+								<Rating value={products[0].product_stars} readOnly />
+							)}
+							{products[0] && (
 								<p className="py-4">{products[0].product_description}</p>
 							)}
 							<div className="single-product__qty-container ">
@@ -223,6 +220,77 @@ const Shop = ({ products, setProducts }) => {
 										<span>Add to Cart</span>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="p-8 mt-6 shop-page__container-prod__comments">
+						<div className=" shop-page__container-prod__comments--post">
+							<h4 className="single-product__desc-container--heading">
+								Write a Review
+							</h4>
+							<form action="">
+								<div className="w-full flex flex-col mt-1">
+									{/* <label className="text-base font-semibold leading-none text-gray-800">
+									Review
+								</label> */}
+									<textarea
+										tabIndex={0}
+										aria-label="leave a message"
+										type="name"
+										className="contact-form__textarea h-28 text-base leading-none text-gray-900 p-3 focus:oultine-none  mt-4 bg-gray-100 border  border-gray-200 placeholder-black-500 resize-none"
+										// defaultValue={address}
+										placeholder="Please input your review"
+										// onChange={(e) => setAddress(e.target.value)}
+									/>
+								</div>
+
+								<div className="text-center flex  justify-end mt-4 lg:text-left">
+									<button
+										type="button"
+										className="w-24 comment_button signup-page__button--google mr-4 inline-block w-full px-7 py-3 text-white font-medium text-sm leading-snug uppercase  shadow-md  hover: focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+										// onClick={closeModalHandler}
+									>
+										Cancel
+									</button>
+									<button
+										type="submit"
+										className="w-24 comment_button signup-page__button--login inline-block w-full px-7 py-3 text-white font-medium text-sm leading-snug uppercase  shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+										// onClick={loginHandler}
+									>
+										Post
+									</button>
+								</div>
+							</form>
+						</div>
+						<div className=" mt-8 shop-page__container-prod__comments--view">
+							<h4 className="single-product__desc-container--heading">
+								Reviews
+							</h4>
+
+							<div className="flex flex-col w-full mb-4">
+								{products[0] &&
+									JSON.parse(products[0].product_reviews).map((comment) => {
+										return (
+											<div className="flex w-full border-2 border-solid border-grey flex-col md:flex-row bg-white mt-4">
+												<div className="flex items-center justify-center w-20">
+													<img
+														className="  rounded-full  w-14 h-14"
+														src={avatar}
+														alt=""
+													/>
+												</div>
+												<div className="p-6 flex flex-col justify-start">
+													<h5 className="text-gray-900 text-xl font-medium mb-2">
+														Anonymous
+													</h5>
+													<p className="text-gray-700 text-base mb-4">
+														{comment.comment}
+													</p>
+												</div>
+											</div>
+										);
+									})}
 							</div>
 						</div>
 					</div>
@@ -468,35 +536,6 @@ const Shop = ({ products, setProducts }) => {
 								</label>
 							</div>
 						</div>
-
-						{/* BY PRICE  */}
-						{/* <hr className="h-px my-4 bg-gray-200 border-0" />
-						<div className="shop-page__filters-price">
-							<h6 className="shop-page__filters-category--title mb-2">
-								By Price
-							</h6>
-							<Slider
-								getAriaLabel={() => "Temperature range"}
-								value={sliderVal}
-								min={0}
-								max={500}
-								step={50}
-								size="medium"
-								sx={{ color: "#FE6F61" }}
-								onChange={priceSlideHandler}
-								valueLabelDisplay="auto"
-								// getAriaValueText={valuetext}
-							/>
-
-							<div className="flex justify-between">
-								<div className="shop-page__filters-price-title">
-									<p>Min </p> <p>{sliderVal[0]}</p>
-								</div>
-								<div className="shop-page__filters-price-title">
-									<p>Max </p> <p>{sliderVal[1]}</p>
-								</div>
-							</div>
-						</div> */}
 					</div>
 					<motion.div
 						layout="true"
