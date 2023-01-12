@@ -20,12 +20,19 @@ import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
 import PersonAddAlt1OutlinedIcon from "@mui/icons-material/PersonAddAlt1Outlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 
+//
+import { Navigate, useHref, useNavigate } from "react-router-dom";
+
 const Dashboard = () => {
 	const [theme, colorMode] = useMode();
 	const colors = tokens(theme.palette.mode);
 
 	const [data, setData] = useState([]);
 	const [myTransactions, setMyTransactions] = useState([]);
+
+	//navigate
+
+	const navigate = useNavigate();
 	let mySales = 0;
 	//fetch total sales
 
@@ -51,7 +58,6 @@ const Dashboard = () => {
 	//
 	const getTotalSales = (data) => {
 		data.forEach((element) => {
-
 			mySales = mySales + element.Sales;
 		});
 	};
@@ -59,6 +65,13 @@ const Dashboard = () => {
 	getTotalSales(data);
 
 	//
+	console.log();
+
+	if (!localStorage.getItem("name")) {
+		// navigate("/admin");
+		window.location.href=`http://localhost:3000/admin`
+
+	}
 
 	return (
 		<ColorModeContext.Provider value={colorMode}>

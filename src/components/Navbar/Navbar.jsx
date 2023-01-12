@@ -59,7 +59,7 @@ const Navbar = () => {
 									</Link>
 								</li>
 								<li className="site-navbar__list-actions-item">
-									<Link to="/profile">
+									<Link to="/admin">
 										<img src={profileIcon} alt="search icon" />
 									</Link>
 								</li>

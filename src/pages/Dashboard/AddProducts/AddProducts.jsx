@@ -87,7 +87,11 @@ const AddProducts = () => {
 				errorToastMessage();
 			});
 	};
+	if (!localStorage.getItem("name")) {
+		// navigate("/admin");
+		window.location.href=`http://localhost:3000/admin`
 
+	}
 	return (
 		<ColorModeContext.Provider value={colorMode}>
 			<ThemeProvider theme={theme}>

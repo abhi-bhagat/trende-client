@@ -120,7 +120,6 @@ const Signup = () => {
 		e.preventDefault();
 
 		if (loginValidator()) {
-			console.log(`working`);
 		} else {
 			emptyValToastMessage();
 			document.getElementById("loginEmail").focus();
@@ -128,9 +127,11 @@ const Signup = () => {
 		axios
 			.post(`http://localhost:8080/login`, loginInfo)
 			.then((data) => {
-				// window.location.href = "http://localhost:3000/dashboard";
-				navigate("/dashboard");
 				console.log(data.data);
+				const fullName = `${data.data[0].customer_fname} ${data.data[0].customer_lname}`;
+				localStorage.setItem("name", fullName);
+				console.log(fullName);
+				window.location.href = `http://localhost:3000/dashboard`;
 			})
 			.catch((e) => loginErrorToastMessage());
 	};
@@ -150,6 +151,11 @@ const Signup = () => {
 				errorToastMessage();
 			});
 	};
+
+	if (localStorage.getItem("name")) {
+		// navigate("/admin");
+		window.location.href = `http://localhost:3000/dashboard`;
+	}
 	return (
 		<div className="signup-page">
 			<div className="signup-page__container">

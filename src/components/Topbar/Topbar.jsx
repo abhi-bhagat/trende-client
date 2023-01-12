@@ -18,6 +18,11 @@ const Topbar = () => {
 	const colors = tokens(theme.palette.mode);
 	const colorMode = useContext(ColorModeContext);
 
+	const logOutHandler = () => {
+		localStorage.removeItem("name");
+		window.location.href = `http://localhost:3000/`;
+	};
+
 	return (
 		<Box
 			className="topbar-container"
@@ -55,9 +60,7 @@ const Topbar = () => {
 					</Link>
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
-					<Link to="/">
-						<ExitToAppOutlinedIcon fontSize="small" />
-					</Link>
+					<ExitToAppOutlinedIcon fontSize="small" onClick={logOutHandler} />
 				</IconButton>
 				<IconButton size="small" sx={{ height: "2rem", width: "2rem" }}>
 					<PersonOutlineOutlinedIcon

@@ -34,7 +34,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 		</MenuItem>
 	);
 };
-
+const uName = localStorage.getItem("name")
 const Sidebar = () => {
 	const theme = useTheme();
 	const colors = tokens(theme.palette.mode);
@@ -108,7 +108,7 @@ const Sidebar = () => {
 									fontWeight="bold"
 									sx={{ m: "10px 0 0 0" }}
 								>
-									Abhishek Bhagat
+									{uName}
 								</Typography>
 							</Box>
 						</Box>
