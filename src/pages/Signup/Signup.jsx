@@ -8,7 +8,7 @@ import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 const Signup = () => {
 	//for signup
 	const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ const Signup = () => {
 	const [loginPass, setLoginPass] = useState("");
 
 	//
-	// const { loginWithRedirect } = useAuth0();
+	const { loginWithRedirect } = useAuth0();
 	// const navigate = useNavigate();
 
 	// modal open/close handler
@@ -257,7 +257,7 @@ const Signup = () => {
 
 							<div className="flex items-center justify-center w-full">
 								<button
-									// onClick={}
+									onClick={() => loginWithRedirect()}
 									className=" w-full signup-page__button--google mt-4 text-base font-semibold leading-none text-white py-4 px-10  hover:bg-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-400 focus:outline-none"
 								>
 									Sign in with Google

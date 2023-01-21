@@ -28,71 +28,85 @@ import Footer from "./components/Footer/Footer";
 import ShoppingCartState from "./context/ShoppingCartState";
 //dep
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 //
+
+// auth0
+import { Auth0Provider } from "@auth0/auth0-react";
 
 function App() {
 	const [products, setProducts] = useState("");
 	// useEffect(() => {}, [window.location.href]);
 
 	return (
-		<ShoppingCartState>
-			<div className="App">
-				<BrowserRouter>
-					{!window.location.href.includes("/dashboard") && <Navbar />}
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route
-							path="/shop"
-							element={<Shop products={products} setProducts={setProducts} />}
-						/>
-						<Route
-							path="/shop/category/:category"
-							element={<Shop products={products} setProducts={setProducts} />}
-						/>
-						<Route
-							path="/shop/:id"
-							element={<Shop products={products} setProducts={setProducts} />}
-						/>
-						<Route path="/about" element={<AboutUs />} />
-						<Route path="/contact" element={<Contact />} />
-						<Route
-							path="/search"
-							element={<Shop products={products} setProducts={setProducts} />}
-						/>
-						<Route path="/wishlist" element={<Home />} />
-						<Route path="/cart" element={<Cart />} />
-						<Route path="/profile" element={<Home />} />
-						<Route path="/checkout" element={<Checkout />} />
-						<Route path="/signup" element={<Signup />} />
+		<Auth0Provider
+			domain="dev-57nak77h2lxvpqol.us.auth0.com"
+			clientId="NPLzm8SmWXs4obOap3jkR81voNsA7WOZ"
+			authorizationParams={{
+				redirect_uri: window.location.origin,
+			}}
+		>
+			<ShoppingCartState>
+				<div className="App">
+					<BrowserRouter>
+						{!window.location.href.includes("/dashboard") && <Navbar />}
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route
+								path="/shop"
+								element={<Shop products={products} setProducts={setProducts} />}
+							/>
+							<Route
+								path="/shop/category/:category"
+								element={<Shop products={products} setProducts={setProducts} />}
+							/>
+							<Route
+								path="/shop/:id"
+								element={<Shop products={products} setProducts={setProducts} />}
+							/>
+							<Route path="/about" element={<AboutUs />} />
+							<Route path="/contact" element={<Contact />} />
+							<Route
+								path="/search"
+								element={<Shop products={products} setProducts={setProducts} />}
+							/>
+							<Route path="/wishlist" element={<Home />} />
+							<Route path="/cart" element={<Cart />} />
+							<Route path="/profile" element={<Home />} />
+							<Route path="/checkout" element={<Checkout />} />
+							<Route path="/signup" element={<Signup />} />
 
-						{/* {dashboard} */}
+							{/* {dashboard} */}
 
-						<Route path="/admin" element={<Signup />} />
-						<Route path="/dashboard" element={<Dashboard />} />
-						<Route path="/dashboard/sales" element={<Sales sales={"abc"} />} />
-						<Route path="/dashboard/addProduct" element={<AddProducts />} />
-						<Route
-							path="/dashboard/deleteProduct"
-							element={<DeleteProducts />}
-						/>
-						<Route
-							path="/dashboard/updateProduct"
-							element={<UpdateProducts />}
-						/>
-						<Route path="/dashboard/faq" element={<FAQ />} />
-						<Route path="/dashboard/invoices" element={<Invoices />} />
-						<Route path="/dashboard/calendar" element={<Calendar />} />
-						<Route path="/dashboard/stock" element={<Stock />} />
-						<Route path="/dashboard/products" element={<Products />} />
-						<Route path="/dashboard/lowProducts" element={<Alert />} />
+							<Route path="/admin" element={<Signup />} />
+							<Route path="/dashboard" element={<Dashboard />} />
+							<Route
+								path="/dashboard/sales"
+								element={<Sales sales={"abc"} />}
+							/>
+							<Route path="/dashboard/addProduct" element={<AddProducts />} />
+							<Route
+								path="/dashboard/deleteProduct"
+								element={<DeleteProducts />}
+							/>
+							<Route
+								path="/dashboard/updateProduct"
+								element={<UpdateProducts />}
+							/>
+							<Route path="/dashboard/faq" element={<FAQ />} />
+							<Route path="/dashboard/invoices" element={<Invoices />} />
+							<Route path="/dashboard/calendar" element={<Calendar />} />
+							<Route path="/dashboard/stock" element={<Stock />} />
+							<Route path="/dashboard/products" element={<Products />} />
+							<Route path="/dashboard/lowProducts" element={<Alert />} />
 
-						<Route path="*" element={<Error />} />
-					</Routes>
-					{!window.location.href.includes("/dashboard") && <Footer />}
-				</BrowserRouter>
-			</div>
-		</ShoppingCartState>
+							<Route path="*" element={<Error />} />
+						</Routes>
+						{!window.location.href.includes("/dashboard") && <Footer />}
+					</BrowserRouter>
+				</div>
+			</ShoppingCartState>
+		</Auth0Provider>
 	);
 }
 
